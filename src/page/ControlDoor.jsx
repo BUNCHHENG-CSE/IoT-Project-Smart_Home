@@ -9,14 +9,13 @@ const ControlDoor = ({ publish, payload }) => {
   const [garageToggle, setGarageToggle] = useState("OFF3");
   const [windowToggle, setWindowToggle] = useState("OFF");
   const doorLists = [
-    { id: 1, name: "Gate", value: gateToggle, setv: setGateToggle, cols: "2" },
-    { id: 2, name: "House", value: doorToggle, setv: setDoorToggle, cols: "1" },
+    { id: 1, name: "Gate", value: gateToggle, setv: setGateToggle, },
+    { id: 2, name: "House", value: doorToggle, setv: setDoorToggle, },
     {
       id: 3,
       name: "Garage",
       value: garageToggle,
       setv: setGarageToggle,
-      cols: "1",
     },
   ];
   return (
@@ -32,10 +31,10 @@ const ControlDoor = ({ publish, payload }) => {
         </div>
         <div className="h-[100rem] w-full">
           <div className=" flex pt-6 flex-col">
-            <div className="w-full grid grid-cols-4 gap-6 ">
+            <div className="w-full grid grid-cols-3 gap-6 ">
               {doorLists.map((d) => (
                 <div
-                  className={`col-span-${d.cols} h-[29.4rem] w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100`}
+                  className="h-[29.4rem] w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
                   onClick={() =>
                     d.setv(
                       d.value === "OFF" + d.id ? "ON" + d.id : "OFF" + d.id,
