@@ -1,0 +1,131 @@
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import mqtt from "mqtt";
+import ControlLedFirstFloor from "./ControlLedFirstFloor";
+import ControlLedSecondFloor from "./ControlLedSecondFloor";
+import Temperature from "./Temperature";
+import ControlFan from "./ControlFan";
+import ConnectToEMQX from "../components/ConnectToEMQX";
+// import TestPub from "./components/TestPub";
+
+import SubcribeToEMQX from "../components/SubcribeToEMQX";
+import ControlDoor from "./ControlDoor";
+
+const MainPage = ({ token }) => {
+  const [client, setClient] = useState(null);
+  const [isSubed, setIsSub] = useState(false);
+  const [payload, setPayload] = useState({});
+  const [connectStatus, setConnectStatus] = useState("Connect");
+  const mqttConnect = (host, mqttOption) => {
+    setConnectStatus("Connecting...");
+    setClient(mqtt.connect(host, mqttOption));
+  };
+
+  useEffect(() => {
+    if (client) {
+      client.on("connect", () => {
+        setConnectStatus("Connected");
+        console.log("connection successful");
+      });
+      client.on("error", (err) => {
+        console.error("Connection error: ", err);
+        client.end();
+      });
+      client.on("reconnect", () => {
+        setConnectStatus("Reconnecting");
+      });
+      client.on("message", (topic, message) => {
+        const payload = { topic, message: message.toString() };
+        setPayload(payload);
+        console.log(`received message: ${message} from topic: ${topic}`);
+      });
+    }
+  }, [client]);
+
+  const mqttDisconnect = () => {
+    if (client) {
+      try {
+        client.end(false, () => {
+          setConnectStatus("Connect");
+          console.log("disconnected successfully");
+        });
+      } catch (error) {
+        console.log("disconnect error:", error);
+      }
+    }
+  };
+
+  const mqttPublish = (context) => {
+    if (client) {
+      // topic, QoS & payload for publishing message
+      const { topic, qos, payload } = context;
+      client.publish(topic, payload, { qos }, (error) => {
+        if (error) {
+          console.log("Publish error: ", error);
+        }
+      });
+    }
+  };
+
+  const mqttSub = (subscription) => {
+    if (client) {
+      // topic & QoS for MQTT subscribing
+      const { topic, qos } = subscription;
+      // subscribe topic
+      // https://github.com/mqttjs/MQTT.js#mqttclientsubscribetopictopic-arraytopic-object-options-callback
+      client.subscribe(topic, { qos }, (error) => {
+        if (error) {
+          console.log("Subscribe to topics error", error);
+          return;
+        }
+        console.log(`Subscribe to topics: ${topic}`);
+        setIsSub(true);
+      });
+    }
+  };
+
+  const mqttUnSub = (subscription) => {
+    if (client) {
+      const { topic, qos } = subscription;
+      client.unsubscribe(topic, { qos }, (error) => {
+        if (error) {
+          console.log("Unsubscribe error", error);
+          return;
+        }
+        console.log(`unsubscribed topic: ${topic}`);
+        setIsSub(false);
+      });
+    }
+  };
+  return (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<ControlLedFirstFloor publish={mqttPublish} payload={payload} />}
+        />
+        <Route
+          path="/secondfloor"
+          element={<ControlLedSecondFloor publish={mqttPublish} payload={payload} />}
+        />
+        <Route path="/about" element={<h1>Not found</h1>} />
+        <Route path="/temperature" element={<Temperature payload={payload}  />} />
+        <Route path="/controlfan" element={<ControlFan publish={mqttPublish} payload={payload}/>} />
+        <Route path="/controldoor" element={<ControlDoor publish={mqttPublish} payload={payload}/>} />
+        <Route
+          path="/connect"
+          element={
+            <ConnectToEMQX
+              connect={mqttConnect}
+              disconnect={mqttDisconnect}
+              connectBtn={connectStatus}
+            />
+          }
+        />
+        <Route path="/subcribe" element={<SubcribeToEMQX sub={mqttSub} showSub={isSubed} />} />
+      </Routes>
+    </>
+  );
+};
+
+export default MainPage;
