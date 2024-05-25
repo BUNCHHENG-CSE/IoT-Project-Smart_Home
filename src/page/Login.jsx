@@ -11,7 +11,7 @@ const Login = ({ setToken,setGuest }) => {
     if (email === emailcheck && pass === passcheck) { 
       setToken(true);
       sessionStorage.setItem("Email",emailcheck)
-      sessionStorage.setItem("Password",passcheck)
+      sessionStorage.setItem("Password","YVhRZ2FYTnVKM1FnWVNCd1lYTnpkMjl5WkE9PQ==")
     } else {
       alert("Enter Again");
     }
