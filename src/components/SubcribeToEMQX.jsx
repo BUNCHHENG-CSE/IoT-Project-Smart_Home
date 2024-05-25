@@ -11,7 +11,7 @@ const SubcribeToEMQX = ({ sub,showSub }) => {
   return (
     <Layout>
       <form
-        className=" h-max w-[60%] px-10 py-7 rounded-3xl mt-20 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
+        className=" h-max w-[60%] px-10 py-7 rounded-3xl mt-16 ml-24 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
         action=""
       >
         <h1 className="text-black dark:text-white">Connect To EMQX Subcribe</h1>
