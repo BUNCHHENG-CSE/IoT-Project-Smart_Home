@@ -44,10 +44,10 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
   return (
     <Layout>
       <form
-        className=" h-max w-[60%] px-10 py-7 rounded-3xl mt-16 ml-24 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
+        className=" h-max w-[60%] sm:w-full px-10 py-7 rounded-3xl mt-16 ml-24 sm:mx-2 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
         action=""
       >
-        <h1 className="text-black dark:text-white">Connect to EMQX</h1>
+        <h1 className="text-black dark:text-white sm:text-[1.2rem]">Connect to EMQX</h1>
         {/*Protocol */}
         <div className="mb-5 mt-10">
           <label
@@ -160,13 +160,13 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
 
         <div className="flex justify-between">
           <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto lg:w-fit px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={handleConnect}
           >
             {connectBtn}
           </button>
           <button
-            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto lg:w-fit px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             onClick={handleDisconnect}
           >
             Disconnect

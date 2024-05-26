@@ -16,7 +16,7 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
             <PiLampPendantFill />
             </span>
-            <h2 className=" font-bold">Control Led 1 Floor</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control Led 1 Floor</h2>
           </Link>
         </div>
 
@@ -28,7 +28,7 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
             <PiLampPendantFill />
             </span>
-            <h2 className=" font-bold">Control Led 2 Floor</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control Led 2 Floor</h2>
           </Link>
         </div>
         <div className="pb-4">
@@ -39,7 +39,7 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
             <BsFan />
             </span>
-            <h2 className=" font-bold">Control Fan</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control Fan</h2>
           </Link>
         </div>
         <div className="pb-4">
@@ -50,10 +50,10 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
             <GiLockedDoor />
             </span>
-            <h2 className=" font-bold">Control D & W</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control D & W</h2>
           </Link>
         </div>
-        <div className="">
+        <div className="sm:pb-4">
           <Link
             to={"/temperature"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white  dark:bg-inherit dark:text-[#2d3436]  active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
@@ -62,10 +62,10 @@ const LeftSidebar = () => {
               {" "}
               <FaTemperatureHigh />{" "}
             </span>
-            <h2 className=" font-bold">Temperature</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Temperature</h2>
           </Link>
         </div>
-        <div className="mt-[23rem]">
+        <div className="mt-[18rem] sm:pb-4 sm:mt-2">
           <Link
             to={"/subcribe"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white dark:bg-inherit dark:text-[#2d3436] active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
@@ -73,10 +73,10 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
               <MdConnectWithoutContact />
             </span>
-            <h2 className=" font-bold">Subcribe</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Subcribe</h2>
           </Link>
         </div>
-        <div className=" mt-[2rem]">
+        <div className=" mt-[2rem] sm:mt-0">
           <Link
             to={"/connect"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white dark:bg-inherit dark:text-[#2d3436] active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
@@ -84,7 +84,7 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
               <MdCastConnected />
             </span>
-            <h2 className=" font-bold">Connect</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Connect</h2>
           </Link>
         </div>
       </div>

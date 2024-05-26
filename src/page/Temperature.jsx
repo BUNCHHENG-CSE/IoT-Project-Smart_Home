@@ -14,12 +14,12 @@ const Temperature = ({ payload }) => {
     if (payload.topic) {
       setTempDataKey(Object.keys(JSON.parse(payload.message)));
       setTempDataValue(Object.values(JSON.parse(payload.message)));
-      if (tempDataKey[0] == "temperature"&& tempDataKey[1]=="humidity") {
+      if (tempDataKey[0] == "temperature" && tempDataKey[1] == "humidity") {
         setTemperature(tempDataValue[0]);
         setHumidity(tempDataValue[1]);
         setTempDataValue([]);
-        setTempDataKey([])
-      } 
+        setTempDataKey([]);
+      }
     }
   }, [payload]);
 
@@ -38,19 +38,12 @@ const Temperature = ({ payload }) => {
       icon: <WiHumidity />,
       bgc: " bg-[#E9F53B]",
     },
-    {
-      id: 3,
-      name: "Pressure",
-      data: "1010.98 hPa",
-      icon: <IoMdSpeedometer />,
-      bgc: " bg-[#CC3443]",
-    },
   ];
   return (
     <Layout>
       <main className="w-[85%]  h-full flex ">
-        <div className="w-[75%] h-full">
-          <div className="grid grid-cols-3 gap-6 w-[100%] h-[20%]">
+        <div className="w-[75%] h-full sm:w-full sm:mr-2">
+          <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52">
             {tempLists.map((tl) => (
               <div
                 className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
@@ -79,12 +72,47 @@ const Temperature = ({ payload }) => {
               </div>
             ))}
           </div>
-          <div className=" h-[80%]">
-            <h2>Heloo</h2>
+          <div className="h-[80%] ">
+            <h2>Historical Charts</h2>
+            <div className="w-[100%] grid grid-cols-2 gap-10 ">
+              <div className=" bg-white rounded-lg p-7 text-center shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none">
+                1
+              </div>
+              <div className=" bg-white rounded-lg p-7 text-center shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none">
+                2
+              </div>
+
+            </div>
           </div>
         </div>
-        <div className=" w-[25%] h-full">
-          <h1>Hello world</h1>
+        <div className=" mx-5 w-[25%] h-full sm:hidden">
+          {tempLists.map((tl) => (
+            <div
+              className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
+              key={tl.id}
+            >
+              <div className="flex items-center justify-between">
+                <div className=" mr-5">
+                  <h2 className="mt-4 mb-1 ">{tl.name}</h2>
+                  <h1>
+                    {tl.data}{" "}
+                    {tl.name === "Temperature" ? (
+                      <>&#8451;</>
+                    ) : tl.name === "Humidity" ? (
+                      <>&#37;</>
+                    ) : (
+                      <></>
+                    )}
+                  </h1>
+                </div>
+                <div className="icon">
+                  <span className=" p-2 rounded-full text-black text-3xl ">
+                    {tl.icon}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </main>
     </Layout>

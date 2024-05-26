@@ -8,17 +8,22 @@ const Layout = ({ children, status = "" }) => {
       <div className="  bg-hero-pattern bg-cover bg-no-repeat bg-center">
         <Navbar status={status} />
       </div>
-      <div className=" relative w-full h-screen mx-auto">
+      <div className=" relative w-full h-screen mx-auto overflow-y-auto">
         <StarsCanvas />
         {status === "login" ? (
           <div>{children}</div>
         ) : status === "guest" ? (
-          <div className=" sm:pl-20 absolute inset-0 top-24 flex flex-row gap-5 "> {children}</div>
-        ) : (
-          <div className=" sm:pl-20 absolute inset-0 top-24 flex flex-row gap-5 ">
-            <LeftSidebar />
+          <div className=" sm:pl-0 md:pl-10 lg:pl-20 absolute inset-0 top-24 flex flex-row gap-5 ">
+            {" "}
             {children}
           </div>
+        ) : (
+          <>
+            <div className="sm:pl-0 md:pl-10 lg:pl-20 absolute inset-0 top-24 flex flex-row gap-5 ">
+              <LeftSidebar />
+              {children}
+            </div>
+          </>
         )}
       </div>
     </div>
