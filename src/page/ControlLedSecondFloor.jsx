@@ -5,9 +5,9 @@ import { FaRegLightbulb } from "react-icons/fa";
 
 const ControlLedSecondFloor = ({ publish, payload }) => {
     
-  const [be2ledToggle, setBe2LedToggle] = useState(sessionStorage.getItem("led5")===null? sessionStorage.setItem("led5","OFF5"):sessionStorage.getItem("led5"));
-  const [ba2ledToggle, setBa2LedToggle] = useState(sessionStorage.getItem("led6")===null? sessionStorage.setItem("led6","OFF6"):sessionStorage.getItem("led6"));
-  const [s1ledToggle, setSLedToggle] = useState(sessionStorage.getItem("led7")===null? sessionStorage.setItem("led7","OFF7"):sessionStorage.getItem("led7"));
+  const [be2ledToggle, setBe2LedToggle] = useState(localStorage.getItem("led5")===null? localStorage.setItem("led5","OFF5"):localStorage.getItem("led5"));
+  const [ba2ledToggle, setBa2LedToggle] = useState(localStorage.getItem("led6")===null? localStorage.setItem("led6","OFF6"):localStorage.getItem("led6"));
+  const [s1ledToggle, setSLedToggle] = useState(localStorage.getItem("led7")===null? localStorage.setItem("led7","OFF7"):localStorage.getItem("led7"));
 
   const ledLists = [
     {
@@ -64,7 +64,7 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
                             ? "ON" + led.id
                             : "OFF" + led.id,
                       }),
-                    }),sessionStorage.setItem("led"+led.id,led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,)
+                    }),localStorage.setItem("led"+led.id,led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,)
                   )
                 }
               >
