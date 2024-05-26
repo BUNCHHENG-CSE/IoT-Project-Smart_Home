@@ -68,13 +68,7 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
       floor: "1",
     },
   ];
-  // console.log(typeof(JSON.parse(payload.message)))
-  // console.log(JSON.parse(payload.message))
-  //console.log(messages.map((m)=>m.message))
-
-  // console.log("Payload"+payload)
-  //console.log(messages[0].temperature);
-  // console.log(Object.keys(temperaryData)[0] === "temperature")
+  
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">

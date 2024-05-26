@@ -83,7 +83,7 @@ const ControlFan = ({ publish, payload }) => {
                         {fan.value === "OFF" + fan.id ? (
                           <PiFanFill className="text-[4rem] sm:text-[3rem]" />
                         ) : (
-                          <PiFanFill className=" animate-spin sm:text-[3rem]" />
+                          <PiFanFill className=" animate-spin text-[4rem] sm:text-[3rem]" />
                         )}
                       </span>
                     </div>
