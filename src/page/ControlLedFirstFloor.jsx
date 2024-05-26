@@ -4,10 +4,26 @@ import { FaLightbulb } from "react-icons/fa";
 import { FaRegLightbulb } from "react-icons/fa";
 
 const ControlLedFirstFloor = ({ publish, payload }) => {
-  const [kledToggle, setKLedToggle] = useState(sessionStorage.getItem("led1")===null? sessionStorage.setItem("led1","OFF1"):sessionStorage.getItem("led1"));
-  const [be1ledToggle, setBe1LedToggle] = useState(sessionStorage.getItem("led2")===null? sessionStorage.setItem("led2","OFF2"):sessionStorage.getItem("led2"));
-  const [ba1ledToggle, setBa1LedToggle] = useState(sessionStorage.getItem("led3")===null? sessionStorage.setItem("led3","OFF3"):sessionStorage.getItem("led3"));
-  const [gledToggle, setGLedToggle] = useState(sessionStorage.getItem("led4")===null? sessionStorage.setItem("led4","OFF4"):sessionStorage.getItem("led4"));
+  const [kledToggle, setKLedToggle] = useState(
+    localStorage.getItem("led1") === null
+      ? localStorage.setItem("led1", "OFF1")
+      : localStorage.getItem("led1")
+  );
+  const [be1ledToggle, setBe1LedToggle] = useState(
+    localStorage.getItem("led2") === null
+      ? localStorage.setItem("led2", "OFF2")
+      : localStorage.getItem("led2")
+  );
+  const [ba1ledToggle, setBa1LedToggle] = useState(
+    localStorage.getItem("led3") === null
+      ? localStorage.setItem("led3", "OFF3")
+      : localStorage.getItem("led3")
+  );
+  const [gledToggle, setGLedToggle] = useState(
+    localStorage.getItem("led4") === null
+      ? localStorage.setItem("led4", "OFF4")
+      : localStorage.getItem("led4")
+  );
 
   const [tempDataKey, setTempDataKey] = useState([]);
   const [tempDataValue, setTempDataValue] = useState([]);
@@ -93,7 +109,26 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
                 className=" h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
                 key={led.id}
                 onClick={() =>
-                  led.setv(led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,publish({topic: "esp32/smarthome",qos: 0,payload: JSON.stringify({led:led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,}),}),sessionStorage.setItem("led"+led.id,led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,) 
+                  led.setv(
+                    led.value === "OFF" + led.id
+                      ? "ON" + led.id
+                      : "OFF" + led.id,
+                    publish({
+                      topic: "esp32/smarthome",
+                      qos: 0,
+                      payload: JSON.stringify({
+                        led:
+                          led.value === "OFF" + led.id
+                            ? "ON" + led.id
+                            : "OFF" + led.id,
+                      }),
+                    }),
+                    localStorage.setItem(
+                      "led" + led.id,
+                      led.value === "OFF" + led.id
+                        ? "ON" + led.id
+                        : "OFF" + led.id
+                    )
                   )
                 }
               >
