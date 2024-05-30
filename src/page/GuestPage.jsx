@@ -10,7 +10,7 @@ const GuestPage = ({ status }) => {
     <Layout status={"guest"}>
       <div className=" overflow-auto w-full">
       <div className="h-[10%] w-full"><h1 className="text-black dark:text-white">Welcome to Our IoT Project</h1></div>
-      <section className="py-6 dark:bg-gray-100">
+      <section className="bg-inherit py-6 dark:bg-inherit">
         <div className="container flex flex-col justify-center p-4 mx-auto">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2">
             {botPhoto.map((b) => (
