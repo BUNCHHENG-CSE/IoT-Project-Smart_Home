@@ -18,7 +18,7 @@ const GuestPage = ({ status }) => {
               <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
                 Project Members
               </p>
-              <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">
+              <h1 className="text-4xl font-bold leading-none text-center sm:text-2xl sm:leading-normal">
                 The people behind the project
               </h1>
               <div className="flex flex-col flex-wrap justify-center mt-8">
