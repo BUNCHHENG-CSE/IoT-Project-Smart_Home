@@ -8,9 +8,9 @@ const Garden = ({ publish, payload }) => {
   // if soild auto < 400
   const [temperature, setTemperature] = useState(0);
   const [waterPumbToggle, setWaterPumbToggle] = useState(
-    sessionStorage.getItem("garden") === null
-      ? sessionStorage.setItem("garden", "OFF")
-      : sessionStorage.getItem("garden")
+    localStorage.getItem("garden") === null
+      ? localStorage.setItem("garden", "OFF")
+      : localStorage.getItem("garden")
   );
   return (
     <Layout>
@@ -28,7 +28,7 @@ const Garden = ({ publish, payload }) => {
                 garden: waterPumbToggle === "OFF" ? "ON" : "OFF",
               }),
             }),
-            sessionStorage.setItem(
+            localStorage.setItem(
               "garden",
               waterPumbToggle === "OFF" ? "ON" : "OFF"
             )

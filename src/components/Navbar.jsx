@@ -7,6 +7,25 @@ const Navbar = ({ status }) => {
   // const [toggle, setToggle] = useState(false);
   const [currentTheme, setCurrentThmeme] = useState("");
   const handleLogout = () => {
+    localStorage.removeItem("led1")
+    localStorage.removeItem("led2")
+    localStorage.removeItem("led3")
+    localStorage.removeItem("led4")
+    localStorage.removeItem("led5")
+    localStorage.removeItem("led6")
+    localStorage.removeItem("led7")
+    localStorage.removeItem("led8")
+    localStorage.removeItem("led9")
+    localStorage.removeItem("led10")
+    localStorage.removeItem("fan1")
+    localStorage.removeItem("fan2")
+    localStorage.removeItem("fan3")
+    localStorage.removeItem("fan4")
+    localStorage.removeItem("door1")
+    localStorage.removeItem("door2")
+    localStorage.removeItem("door3")
+    localStorage.removeItem("window")
+    localStorage.removeItem("garden")
     sessionStorage.clear()
     location.pathname = "/";
   };

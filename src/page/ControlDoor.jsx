@@ -5,24 +5,24 @@ import { FaDoorClosed } from "react-icons/fa6";
 import { FaDoorOpen } from "react-icons/fa6";
 const ControlDoor = ({ publish, payload }) => {
   const [gateToggle, setGateToggle] = useState(
-    sessionStorage.getItem("door1") === null
-      ? sessionStorage.setItem("door1", "OFF1")
-      : sessionStorage.getItem("door1")
+    localStorage.getItem("door1") === null
+      ? localStorage.setItem("door1", "OFF1")
+      : localStorage.getItem("door1")
   );
   const [doorToggle, setDoorToggle] = useState(
-    sessionStorage.getItem("door2") === null
-      ? sessionStorage.setItem("door2", "OFF2")
-      : sessionStorage.getItem("door2")
+    localStorage.getItem("door2") === null
+      ? localStorage.setItem("door2", "OFF2")
+      : localStorage.getItem("door2")
   );
   const [garageToggle, setGarageToggle] = useState(
-    sessionStorage.getItem("door3") === null
-      ? sessionStorage.setItem("door3", "OFF3")
-      : sessionStorage.getItem("door3")
+    localStorage.getItem("door3") === null
+      ? localStorage.setItem("door3", "OFF3")
+      : localStorage.getItem("door3")
   );
   const [windowToggle, setWindowToggle] = useState(
-    sessionStorage.getItem("window") === null
-      ? sessionStorage.setItem("window", "OFF")
-      : sessionStorage.getItem("window")
+    localStorage.getItem("window") === null
+      ? localStorage.setItem("window", "OFF")
+      : localStorage.getItem("window")
   );
   const doorLists = [
     { id: 1, name: "Gate", value: gateToggle, setv: setGateToggle },
@@ -64,7 +64,7 @@ const ControlDoor = ({ publish, payload }) => {
                               : "OFF" + d.id,
                         }),
                       }),
-                      sessionStorage.setItem(
+                      localStorage.setItem(
                         "door" + d.id,
                         d.value === "OFF" + d.id ? "ON" + d.id : "OFF" + d.id
                       )
@@ -103,7 +103,7 @@ const ControlDoor = ({ publish, payload }) => {
                         window: windowToggle === "OFF" ? "ON" : "OFF",
                       }),
                     }),
-                    sessionStorage.setItem(
+                    localStorage.setItem(
                       "window",
                       windowToggle === "OFF" ? "ON" : "OFF",
                     )
