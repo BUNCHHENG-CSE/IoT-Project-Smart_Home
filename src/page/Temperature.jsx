@@ -14,7 +14,10 @@ const Temperature = ({ payload }) => {
   const [humidity, setHumidity] = useState(0);
   const [tempDataKey, setTempDataKey] = useState([]);
   const [tempDataValue, setTempDataValue] = useState([]);
-
+  var today = new Date(),
+    date =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  console.log(date);
   useEffect(() => {
     if (payload.topic) {
       setTempDataKey(Object.keys(JSON.parse(payload.message)));
@@ -87,14 +90,13 @@ const Temperature = ({ payload }) => {
                 2
               </div> */}
               <Line
-          
                 data={{
                   labels: Data.DailyForecasts.map((d) => d.Date),
                   datasets: [
                     {
                       label: "Maximum Temperature",
                       data: Data.DailyForecasts.map(
-                        (dMaxT) => (dMaxT.Temperature.Maximum.Value -32 )/1.8
+                        (dMaxT) => (dMaxT.Temperature.Maximum.Value - 32) / 1.8
                       ),
                       backgroundColor: "#064FF0",
                       borderColor: "#064FF0",
@@ -102,7 +104,7 @@ const Temperature = ({ payload }) => {
                     {
                       label: "Minimum Temperature",
                       data: Data.DailyForecasts.map(
-                        (dMinT) => (dMinT.Temperature.Minimum.Value- 32 ) / 1.8
+                        (dMinT) => (dMinT.Temperature.Minimum.Value - 32) / 1.8
                       ),
                       backgroundColor: "#FF3030",
                       borderColor: "#FF3030",

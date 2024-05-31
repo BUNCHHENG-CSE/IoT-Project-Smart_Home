@@ -69,7 +69,7 @@ const GuestPage = ({ status }) => {
                         Chhean Silapin
                       </p>
                       <p className=" text-base">
-                        <span className=" font-semibold">Co-Leader</span> |
+                        <span className=" font-semibold">Member</span> |
                         Design Home Template
                       </p>
                     </div>
@@ -85,7 +85,7 @@ const GuestPage = ({ status }) => {
                         Kea Sorvan
                       </p>
                       <p className=" text-base">
-                        <span className=" font-semibold">Co-Leader</span> |
+                        <span className=" font-semibold">Member</span> |
                         Design Home Template
                       </p>
                     </div>
