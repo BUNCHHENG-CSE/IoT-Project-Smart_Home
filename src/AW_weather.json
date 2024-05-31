@@ -1,0 +1,63 @@
+{
+  "DailyForecasts": [
+    {
+      "Date": "2024-05-27",
+      "Temperature": {
+        "Minimum": {
+          "Value": 82
+        },
+        "Maximum": {
+          "Value": 99
+        }
+      }
+    },
+    {
+      "Date": "2024-05-28",
+
+      "Temperature": {
+        "Minimum": {
+          "Value": 81
+        },
+        "Maximum": {
+          "Value": 99
+        }
+      }
+    },
+    {
+      "Date": "2024-05-29",
+
+      "Temperature": {
+        "Minimum": {
+          "Value": 81
+        },
+        "Maximum": {
+          "Value": 96
+        }
+      }
+    },
+    {
+      "Date": "2024-05-30",
+
+      "Temperature": {
+        "Minimum": {
+          "Value": 80
+        },
+        "Maximum": {
+          "Value": 97
+        }
+      }
+    },
+    {
+      "Date": "2024-05-31",
+
+      "Temperature": {
+        "Minimum": {
+          "Value": 80
+        },
+        "Maximum": {
+          "Value": 96
+        }
+      }
+    }
+  ]
+}

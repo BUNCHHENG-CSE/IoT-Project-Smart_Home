@@ -16,12 +16,14 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient( #93c5fd,#93c5fd);
+  /*background-color: #000;*/
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#377099, #93c5fd);
+  /*background: linear-gradient(#ffffff, #93c5fd);*/
+  background-color: #000;
 }
 
 * {

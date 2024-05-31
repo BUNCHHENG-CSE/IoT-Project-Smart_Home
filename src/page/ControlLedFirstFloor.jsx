@@ -5,24 +5,24 @@ import { FaRegLightbulb } from "react-icons/fa";
 
 const ControlLedFirstFloor = ({ publish, payload }) => {
   const [kledToggle, setKLedToggle] = useState(
-    localStorage.getItem("led1") === null
-      ? localStorage.setItem("led1", "OFF1")
-      : localStorage.getItem("led1")
+    sessionStorage.getItem("led1") === null
+      ? sessionStorage.setItem("led1", "OFF1")
+      : sessionStorage.getItem("led1")
   );
   const [be1ledToggle, setBe1LedToggle] = useState(
-    localStorage.getItem("led2") === null
-      ? localStorage.setItem("led2", "OFF2")
-      : localStorage.getItem("led2")
+    sessionStorage.getItem("led2") === null
+      ? sessionStorage.setItem("led2", "OFF2")
+      : sessionStorage.getItem("led2")
   );
   const [ba1ledToggle, setBa1LedToggle] = useState(
-    localStorage.getItem("led3") === null
-      ? localStorage.setItem("led3", "OFF3")
-      : localStorage.getItem("led3")
+    sessionStorage.getItem("led3") === null
+      ? sessionStorage.setItem("led3", "OFF3")
+      : sessionStorage.getItem("led3")
   );
   const [gledToggle, setGLedToggle] = useState(
-    localStorage.getItem("led4") === null
-      ? localStorage.setItem("led4", "OFF4")
-      : localStorage.getItem("led4")
+    sessionStorage.getItem("led4") === null
+      ? sessionStorage.setItem("led4", "OFF4")
+      : sessionStorage.getItem("led4")
   );
 
   const [tempDataKey, setTempDataKey] = useState([]);
@@ -117,7 +117,7 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
                             : "OFF" + led.id,
                       }),
                     }),
-                    localStorage.setItem(
+                    sessionStorage.setItem(
                       "led" + led.id,
                       led.value === "OFF" + led.id
                         ? "ON" + led.id

@@ -5,23 +5,27 @@ import { FaRegLightbulb } from "react-icons/fa";
 
 const ControlLedSecondFloor = ({ publish, payload }) => {
     
-  const [be2ledToggle, setBe2LedToggle] = useState(localStorage.getItem("led5")===null? localStorage.setItem("led5","OFF5"):localStorage.getItem("led5"));
-  const [ba2ledToggle, setBa2LedToggle] = useState(localStorage.getItem("led6")===null? localStorage.setItem("led6","OFF6"):localStorage.getItem("led6"));
-  const [s1ledToggle, setSLedToggle] = useState(localStorage.getItem("led7")===null? localStorage.setItem("led7","OFF7"):localStorage.getItem("led7"));
+  const [be1ledToggle, setBe1LedToggle] = useState(sessionStorage.getItem("led5")===null? sessionStorage.setItem("led5","OFF5"):sessionStorage.getItem("led5"));
+  const [ba1ledToggle, setBa1LedToggle] = useState(sessionStorage.getItem("led6")===null? sessionStorage.setItem("led6","OFF6"):sessionStorage.getItem("led6"));
+  const [s1ledToggle, setSLedToggle] = useState(sessionStorage.getItem("led7")===null? sessionStorage.setItem("led7","OFF7"):sessionStorage.getItem("led7"));
+  const [be2ledToggle, setBe2LedToggle] = useState(sessionStorage.getItem("led8")===null? sessionStorage.setItem("led8","OFF8"):sessionStorage.getItem("led8"));
+  const [ba2ledToggle, setBa2LedToggle] = useState(sessionStorage.getItem("led9")===null? sessionStorage.setItem("led9","OFF9"):sessionStorage.getItem("led9"));
+  const [offledToggle, setOffLedToggle] = useState(sessionStorage.getItem("led10")===null? sessionStorage.setItem("led10","OFF10"):sessionStorage.getItem("led10"));
+
 
   const ledLists = [
     {
       id: 5,
       name: "Bedroom",
-      value: be2ledToggle,
-      setv: setBe2LedToggle,
+      value: be1ledToggle,
+      setv: setBe1LedToggle,
       floor:"2",
     },
     {
       id: 6,
       name: "Bathroom",
-      value: ba2ledToggle,
-      setv: setBa2LedToggle,
+      value: ba1ledToggle,
+      setv: setBa1LedToggle,
       floor:"2",
     },
     {
@@ -29,6 +33,27 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
       name: "Study Room",
       value: s1ledToggle,
       setv: setSLedToggle,
+      floor:"2",
+    },
+    {
+      id: 8,
+      name: "Bedroom",
+      value: be2ledToggle,
+      setv: setBe2LedToggle,
+      floor:"2",
+    },
+    {
+      id: 9,
+      name: "Bathroom",
+      value: ba2ledToggle,
+      setv: setBa2LedToggle,
+      floor:"2",
+    },
+    {
+      id: 10,
+      name: "Office",
+      value: offledToggle,
+      setv: setOffLedToggle,
       floor:"2",
     },
    
@@ -64,7 +89,7 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
                             ? "ON" + led.id
                             : "OFF" + led.id,
                       }),
-                    }),localStorage.setItem("led"+led.id,led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,)
+                    }),sessionStorage.setItem("led"+led.id,led.value === "OFF" + led.id? "ON" + led.id: "OFF" + led.id,)
                   )
                 }
               >

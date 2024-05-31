@@ -5,24 +5,24 @@ import { PiFanFill } from "react-icons/pi";
 
 const ControlFan = ({ publish, payload }) => {
   const [fan1Toggle, setFan1Toggle] = useState(
-    localStorage.getItem("fan1") === null
-      ? localStorage.setItem("fan1", "OFF1")
-      : localStorage.getItem("fan1")
+    sessionStorage.getItem("fan1") === null
+      ? sessionStorage.setItem("fan1", "OFF1")
+      : sessionStorage.getItem("fan1")
   );
   const [fan2Toggle, setFan2Toggle] = useState(
-    localStorage.getItem("fan2") === null
-      ? localStorage.setItem("fan2", "OFF2")
-      : localStorage.getItem("fan2")
+    sessionStorage.getItem("fan2") === null
+      ? sessionStorage.setItem("fan2", "OFF2")
+      : sessionStorage.getItem("fan2")
   );
   const [fan3Toggle, setFan3Toggle] = useState(
-    localStorage.getItem("fan3") === null
-      ? localStorage.setItem("fan3", "OFF3")
-      : localStorage.getItem("fan3")
+    sessionStorage.getItem("fan3") === null
+      ? sessionStorage.setItem("fan3", "OFF3")
+      : sessionStorage.getItem("fan3")
   );
   const [fan4Toggle, setFan4Toggle] = useState(
-    localStorage.getItem("fan4") === null
-      ? localStorage.setItem("fan4", "OFF4")
-      : localStorage.getItem("fan4")
+    sessionStorage.getItem("fan4") === null
+      ? sessionStorage.setItem("fan4", "OFF4")
+      : sessionStorage.getItem("fan4")
   );
   const fanLists = [
     { id: 1, name: "Fan 1", value: fan1Toggle, setv: setFan1Toggle },
@@ -63,7 +63,7 @@ const ControlFan = ({ publish, payload }) => {
                               : "OFF" + fan.id,
                         }),
                       }),
-                      localStorage.setItem(
+                      sessionStorage.setItem(
                         "fan" + fan.id,
                         fan.value === "OFF" + fan.id
                           ? "ON" + fan.id
