@@ -56,7 +56,7 @@ const Garden = ({ publish, payload }) => {
             </div>
           </div>
           <div
-            className={` col-span-2 h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
+            className={`sm:col-span-1 md:col-span-1 lg:col-span-2 h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">
@@ -71,7 +71,7 @@ const Garden = ({ publish, payload }) => {
             </div>
           </div>
         </div>
-        <div className="h-[100rem] w-full md:mt-10 sm:-mt-7">
+        <div className="h-[100rem] w-full md:mt-10 sm:mt-60">
         <Line
                   data={{
                     labels: Data.DailyForecasts.map((d) => d.Date),

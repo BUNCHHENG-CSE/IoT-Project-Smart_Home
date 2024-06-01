@@ -6,7 +6,7 @@ const useSpeechToText = (options) => {
   const [transcript, setTranscript] = useState("");
   const recognitionRef = useRef(null);
   useEffect(() => {
-    if (!"webkitSpeechRecognition" in window) {
+    if (!("webkitSpeechRecognition") in window) {
       console.error("Web speech is not supported");
       return;
     }
