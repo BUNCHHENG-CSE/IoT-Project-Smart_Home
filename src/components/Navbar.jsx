@@ -2,31 +2,46 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
+import useSpeechToText from "./useSpeechToText";
 const Navbar = ({ status }) => {
-  //const [active, setActive] = useState("");
-  // const [toggle, setToggle] = useState(false);
   const [currentTheme, setCurrentThmeme] = useState("");
+  const [text, setText] = useState("");
+  const { isListening, transcript, startListening, stopListening } =
+    useSpeechToText({ continue: true });
+  const startStopListening = () => {
+    isListening ? stopVoiceInput() : startListening();
+  };
+
+  const stopVoiceInput = () => {
+    setText(
+      (prev) =>
+        prev + (transcript.length ? (prev.length ? " " : "") + transcript : "")
+    );
+    stopListening();
+    
+  };
+  console.log(transcript);
   const handleLogout = () => {
-    localStorage.removeItem("led1")
-    localStorage.removeItem("led2")
-    localStorage.removeItem("led3")
-    localStorage.removeItem("led4")
-    localStorage.removeItem("led5")
-    localStorage.removeItem("led6")
-    localStorage.removeItem("led7")
-    localStorage.removeItem("led8")
-    localStorage.removeItem("led9")
-    localStorage.removeItem("led10")
-    localStorage.removeItem("fan1")
-    localStorage.removeItem("fan2")
-    localStorage.removeItem("fan3")
-    localStorage.removeItem("fan4")
-    localStorage.removeItem("door1")
-    localStorage.removeItem("door2")
-    localStorage.removeItem("door3")
-    localStorage.removeItem("window")
-    localStorage.removeItem("garden")
-    sessionStorage.clear()
+    localStorage.removeItem("led1");
+    localStorage.removeItem("led2");
+    localStorage.removeItem("led3");
+    localStorage.removeItem("led4");
+    localStorage.removeItem("led5");
+    localStorage.removeItem("led6");
+    localStorage.removeItem("led7");
+    localStorage.removeItem("led8");
+    localStorage.removeItem("led9");
+    localStorage.removeItem("led10");
+    localStorage.removeItem("fan1");
+    localStorage.removeItem("fan2");
+    localStorage.removeItem("fan3");
+    localStorage.removeItem("fan4");
+    localStorage.removeItem("door1");
+    localStorage.removeItem("door2");
+    localStorage.removeItem("door3");
+    localStorage.removeItem("window");
+    localStorage.removeItem("garden");
+    sessionStorage.clear();
     location.pathname = "/";
   };
   const handleGuest = () => {
@@ -89,14 +104,26 @@ const Navbar = ({ status }) => {
             )}
           </li>
           {status == !"login" || status == !"guest" ? (
-            <li>
-              <button
-                onClick={handleLogout}
-                className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-              >
-                Logout
-              </button>
-            </li>
+            <>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                >
+                  Logout
+                </button>
+              </li>
+              {/* <li>
+                <button
+                  onClick={() => {
+                    startStopListening();
+                  }}
+                  className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                >
+                  {isListening ? "Stop Listening" : "Speak"}
+                </button>
+              </li> */}
+            </>
           ) : status === "guest" ? (
             <li>
               <button

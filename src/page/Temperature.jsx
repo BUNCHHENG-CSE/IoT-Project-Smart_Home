@@ -82,49 +82,78 @@ const Temperature = ({ payload }) => {
           </div>
           <div className="h-[80%] ">
             <h2>Historical Charts</h2>
-            <div className="w-[100%] grid grid-cols-2 gap-10 ">
-              {/* <div className=" bg-white rounded-lg p-7 text-center shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none">
-                1
+            <div className="w-[100%] flex flex-col gap-20">
+              <div>
+                <Line
+                  data={{
+                    labels: Data.DailyForecasts.map((d) => d.Date),
+                    datasets: [
+                      {
+                        label: "Maximum Temperature",
+                        data: Data.DailyForecasts.map(
+                          (dMaxT) =>
+                            (dMaxT.Temperature.Maximum.Value - 32) / 1.8
+                        ),
+                        backgroundColor: "#064FF0",
+                        borderColor: "#064FF0",
+                      },
+                      {
+                        label: "Minimum Temperature",
+                        data: Data.DailyForecasts.map(
+                          (dMinT) =>
+                            (dMinT.Temperature.Minimum.Value - 32) / 1.8
+                        ),
+                        backgroundColor: "#FF3030",
+                        borderColor: "#FF3030",
+                      },
+                    ],
+                  }}
+                  options={{
+                    elements: {
+                      line: {
+                        tension: 0.5,
+                      },
+                    },
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: "Daily Maximum & Minimum Temperature",
+                      },
+                    },
+                  }}
+                />
               </div>
-              <div className=" bg-white rounded-lg p-7 text-center shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none">
-                2
-              </div> */}
-              <Line
-                data={{
-                  labels: Data.DailyForecasts.map((d) => d.Date),
-                  datasets: [
-                    {
-                      label: "Maximum Temperature",
-                      data: Data.DailyForecasts.map(
-                        (dMaxT) => (dMaxT.Temperature.Maximum.Value - 32) / 1.8
-                      ),
-                      backgroundColor: "#064FF0",
-                      borderColor: "#064FF0",
+              <div>
+                <Line
+                  data={{
+                    labels: Data.DailyForecasts.map((d) => d.Date),
+                    datasets: [
+                      {
+                        label: "Maximum Temperature",
+                        data: Data.DailyForecasts.map(
+                          (dMaxT) =>
+                            (dMaxT.Temperature.Maximum.Value - 32) / 1.8
+                        ),
+                        backgroundColor: "#064FF0",
+                        borderColor: "#064FF0",
+                      },
+                    ],
+                  }}
+                  options={{
+                    elements: {
+                      line: {
+                        tension: 0.5,
+                      },
                     },
-                    {
-                      label: "Minimum Temperature",
-                      data: Data.DailyForecasts.map(
-                        (dMinT) => (dMinT.Temperature.Minimum.Value - 32) / 1.8
-                      ),
-                      backgroundColor: "#FF3030",
-                      borderColor: "#FF3030",
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: "Daily Maximum & Minimum Temperature",
+                      },
                     },
-                  ],
-                }}
-                options={{
-                  elements: {
-                    line: {
-                      tension: 0.5,
-                    },
-                  },
-                  plugins: {
-                    title: {
-                      display: true,
-                      text: "Daily Maximum & Minimum Temperature",
-                    },
-                  },
-                }}
-              />
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

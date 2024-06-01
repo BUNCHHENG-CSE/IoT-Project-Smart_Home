@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import mqtt from "mqtt";
 import ConnectToEMQX from "../components/ConnectToEMQX";
 import MainPage from "../page/MainPage";
-import TestPub from "../components/TestPub";
+
 
 export const QosOption = createContext();
 
@@ -107,8 +107,8 @@ const EMQXContext = () => {
         connectBtn={connectStatus}
       />
       <QosOption.Provider >
-        {/* <MainPage publish={mqttPublish} payload={payload}/> */}
-      <TestPub  publish={mqttPublish} payload={payload}/>
+
+    
       </QosOption.Provider>
     </>
   );
