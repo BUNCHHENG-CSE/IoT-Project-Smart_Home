@@ -22,7 +22,7 @@ const Garden = ({ publish, payload }) => {
       <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">
         <div className="h-[18%] w-full grid place-content-center ">
           <div
-            className={ ` self-center h-max w-[30rem] sm:w-[27rem] px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
+            className={ ` self-center h-[12rem] w-[50rem] sm:w-[27rem] sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">
@@ -79,7 +79,7 @@ const Garden = ({ publish, payload }) => {
         </div>
         <div className="h-[18%] w-full grid lg:grid-cols-2 gap-6 md:grid-cols-2 sm:grid-col-1 sm:mt-10">
           <div
-            className=" col-span-1 h-[10rem] w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
+            className=" col-span-1 h-[12rem] sm:h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
             onClick={() =>
               setWaterPumbToggle(
                 waterPumbToggle === "OFF" ? "ON" : "OFF",
