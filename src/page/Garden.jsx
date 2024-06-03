@@ -20,43 +20,9 @@ const Garden = ({ publish, payload }) => {
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">
-        <div className="h-[18%] w-full grid lg:grid-cols-3 gap-6 md:grid-cols-2 sm:grid-col-1">
+        <div className="h-[18%] w-full grid place-content-center ">
           <div
-            className=" col-span-1 h-[10rem] w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
-            onClick={() =>
-              setWaterPumbToggle(
-                waterPumbToggle === "OFF" ? "ON" : "OFF",
-                publish({
-                  topic: "esp32/smarthome",
-                  qos: 0,
-                  payload: JSON.stringify({
-                    garden: waterPumbToggle === "OFF" ? "ON" : "OFF",
-                  }),
-                }),
-                localStorage.setItem(
-                  "garden",
-                  waterPumbToggle === "OFF" ? "ON" : "OFF"
-                )
-              )
-            }
-          >
-            <div className="flex items-center flex-col">
-              <div className="">
-                <h2 className=" dark:text-white font-extrabold">Water Pumb</h2>
-              </div>
-              <div className="icon">
-                <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
-                  {waterPumbToggle === "OFF" ? (
-                    <IoWaterOutline className="text-[3rem] sm:text-[2rem]" />
-                  ) : (
-                    <IoWater className="text-[3rem] sm:text-[2rem]" />
-                  )}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`sm:col-span-1 md:col-span-1 lg:col-span-2 h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
+            className={ ` self-center h-max w-[30rem] sm:w-[27rem] px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">
@@ -71,7 +37,7 @@ const Garden = ({ publish, payload }) => {
             </div>
           </div>
         </div>
-        <div className="h-[100rem] w-full md:mt-10 sm:mt-60">
+        <div className="h-fit w-full md:mt-10 sm:mt-20">
         <Line
                   data={{
                     labels: Data.DailyForecasts.map((d) => d.Date),
@@ -111,6 +77,42 @@ const Garden = ({ publish, payload }) => {
                   }}
                 />
         </div>
+        <div className="h-[18%] w-full grid lg:grid-cols-2 gap-6 md:grid-cols-2 sm:grid-col-1 sm:mt-10">
+          <div
+            className=" col-span-1 h-[10rem] w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
+            onClick={() =>
+              setWaterPumbToggle(
+                waterPumbToggle === "OFF" ? "ON" : "OFF",
+                publish({
+                  topic: "esp32/smarthome",
+                  qos: 0,
+                  payload: JSON.stringify({
+                    garden: waterPumbToggle === "OFF" ? "ON" : "OFF",
+                  }),
+                }),
+                localStorage.setItem(
+                  "garden",
+                  waterPumbToggle === "OFF" ? "ON" : "OFF"
+                )
+              )
+            }
+          >
+            <div className="flex items-center flex-col">
+              <div className="">
+                <h2 className=" dark:text-white font-extrabold">Water Pumb</h2>
+              </div>
+              <div className="icon">
+                <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
+                  {waterPumbToggle === "OFF" ? (
+                    <IoWaterOutline className="text-[3rem] sm:text-[2rem]" />
+                  ) : (
+                    <IoWater className="text-[3rem] sm:text-[2rem]" />
+                  )}
+                </span>
+              </div>
+            </div>
+          </div>
+         </div>
       </div>
     </Layout>
   );

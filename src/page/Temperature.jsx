@@ -51,7 +51,7 @@ const Temperature = ({ payload }) => {
     <Layout>
       <main className="w-[85%]  h-full flex ">
         <div className="w-[75%] h-full sm:w-full sm:mr-2">
-          <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52">
+          <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52 lg:hidden sm:block">
             {tempLists.map((tl) => (
               <div
                 className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
@@ -157,7 +157,7 @@ const Temperature = ({ payload }) => {
             </div>
           </div>
         </div>
-        <div className=" mx-5 w-[25%] h-full sm:hidden">
+        <div className=" mx-5 w-[25%] h-full sm:hidden md:hidden lg:block">
           {tempLists.map((tl) => (
             <div
               className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
