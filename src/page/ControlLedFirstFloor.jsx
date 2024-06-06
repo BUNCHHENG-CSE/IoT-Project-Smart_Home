@@ -9,7 +9,7 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
       ? localStorage.setItem("led1", "OFF1")
       : localStorage.getItem("led1")
   );
-  const [be1ledToggle, setBe1LedToggle] = useState(
+  const [lviledToggle, setLviLedToggle] = useState(
     localStorage.getItem("led2") === null
       ? localStorage.setItem("led2", "OFF2")
       : localStorage.getItem("led2")
@@ -64,9 +64,9 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
     },
     {
       id: 2,
-      name: " Bedroom",
-      value: be1ledToggle,
-      setv: setBe1LedToggle,
+      name: " Living Room",
+      value: lviledToggle,
+      setv: setLviLedToggle,
       floor: "1",
     },
     {
