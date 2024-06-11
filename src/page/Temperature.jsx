@@ -54,7 +54,7 @@ const Temperature = ({ payload }) => {
           <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52 lg:hidden sm:block">
             {tempLists.map((tl) => (
               <div
-                className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
+                className={` sm:w-88  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
                 key={tl.id}
               >
                 <div className="flex items-center justify-between">
@@ -82,7 +82,7 @@ const Temperature = ({ payload }) => {
           </div>
           <div className="h-[80%] ">
             <h2>Historical Charts</h2>
-            <div className="w-[100%] flex flex-col gap-20">
+            <div className="w-[100%] sm:w-[90%] flex flex-col gap-20">
               <div>
                 <Line
                   data={{

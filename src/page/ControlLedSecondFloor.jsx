@@ -7,7 +7,7 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
     
   const [be1ledToggle, setBe1LedToggle] = useState(localStorage.getItem("led5")===null? localStorage.setItem("led5","OFF5"):localStorage.getItem("led5"));
   const [ba1ledToggle, setBa1LedToggle] = useState(localStorage.getItem("led6")===null? localStorage.setItem("led6","OFF6"):localStorage.getItem("led6"));
-  const [s1ledToggle, setSLedToggle] = useState(localStorage.getItem("led7")===null? localStorage.setItem("led7","OFF7"):localStorage.getItem("led7"));
+  const [wwledToggle, setWWLedToggle] = useState(localStorage.getItem("led7")===null? localStorage.setItem("led7","OFF7"):localStorage.getItem("led7"));
   const [be2ledToggle, setBe2LedToggle] = useState(localStorage.getItem("led8")===null? localStorage.setItem("led8","OFF8"):localStorage.getItem("led8"));
   const [ba2ledToggle, setBa2LedToggle] = useState(localStorage.getItem("led9")===null? localStorage.setItem("led9","OFF9"):localStorage.getItem("led9"));
   const [offledToggle, setOffLedToggle] = useState(localStorage.getItem("led10")===null? localStorage.setItem("led10","OFF10"):localStorage.getItem("led10"));
@@ -30,9 +30,9 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
     },
     {
       id: 7,
-      name: "Study Room",
-      value: s1ledToggle,
-      setv: setSLedToggle,
+      name: "Walkway",
+      value: wwledToggle,
+      setv: setWWLedToggle,
       floor:"2",
     },
     {
