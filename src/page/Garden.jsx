@@ -22,7 +22,7 @@ const Garden = ({ publish, payload }) => {
       <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">
         <div className="h-[18%] w-full grid place-content-center ">
           <div
-            className={ ` self-center h-[12rem] w-[50rem] sm:w-[22rem] sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
+            className={ ` self-center h-[12rem] w-[50rem] sm:w-[19rem] sm:mt-10 sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">

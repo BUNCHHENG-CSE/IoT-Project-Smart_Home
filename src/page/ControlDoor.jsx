@@ -25,13 +25,29 @@ const ControlDoor = ({ publish, payload }) => {
       : localStorage.getItem("window")
   );
   const doorLists = [
-    { id: 1, name: "Gate", value: gateToggle, setv: setGateToggle },
-    { id: 2, name: "House", value: doorToggle, setv: setDoorToggle },
+    {
+      id: 1,
+      name: "Gate",
+      value: gateToggle,
+      setv: setGateToggle,
+      dclose: <FaDoorClosed className="text-[4rem] sm:text-[3rem]" />,
+      dopen: <FaDoorOpen className="text-[4rem] sm:text-[3rem]" />,
+    },
+    {
+      id: 2,
+      name: "House",
+      value: doorToggle,
+      setv: setDoorToggle,
+      dclose: <FaDoorClosed className="text-[4rem] sm:text-[3rem]" />,
+      dopen: <FaDoorOpen className="text-[4rem] sm:text-[3rem]" />,
+    },
     {
       id: 3,
       name: "Garage",
       value: garageToggle,
       setv: setGarageToggle,
+      dclose: <FaDoorClosed className="text-[4rem] sm:text-[3rem]" />,
+      dopen: <FaDoorOpen className="text-[4rem] sm:text-[3rem]" />,
     },
   ];
   return (
@@ -79,11 +95,7 @@ const ControlDoor = ({ publish, payload }) => {
                     </div>
                     <div className="">
                       <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
-                        {d.value === "OFF" + d.id ? (
-                          <FaDoorClosed className="text-[4rem] sm:text-[3rem]" />
-                        ) : (
-                          <FaDoorOpen className="text-[4rem] sm:text-[3rem]" />
-                        )}
+                        {d.value === "OFF" + d.id ? d.dclose : d.dopen}
                       </span>
                     </div>
                   </div>
@@ -105,7 +117,7 @@ const ControlDoor = ({ publish, payload }) => {
                     }),
                     localStorage.setItem(
                       "window",
-                      windowToggle === "OFF" ? "ON" : "OFF",
+                      windowToggle === "OFF" ? "ON" : "OFF"
                     )
                   )
                 }
