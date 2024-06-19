@@ -58,7 +58,7 @@ const ControlDoor = ({ publish, payload }) => {
             Iot <span className="text-[#915eff]">Smart Home</span>
           </h1>
           <p className="font-medium lg:text-[20px] sm:text-[16px] text-[16px] lg:leading-[40px] mt-2 dark:text-white-100 text-black-100">
-            Iot Project | Smart Home
+            Cotrol Door and Window
           </p>
         </div>
         <div className="h-[100rem] w-full sm:-mt-7">
@@ -129,11 +129,30 @@ const ControlDoor = ({ publish, payload }) => {
                     </h2>
                   </div>
                   <div className="">
-                    <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
-                      {windowToggle === "OFF" ? (
-                        <FaDoorClosed className="text-[4rem] sm:text-[3rem]" />
+                    <span className=" p-2 rounded-full  text-black text-3xl dark:text-white">
+                      
+                      {localStorage.getItem("theme") === "light" ? (
+                        windowToggle === "OFF" ? (
+                          <img
+                            src="/window-close-light.png"
+                            className="w-[6rem] h-[6rem] dark:text-white"
+                          />
+                        ) : (
+                          <img
+                            src="/window-open-light.png"
+                            className="w-[6rem] h-[6rem] dark:bg-inherit"
+                          />
+                        )
+                      ) : windowToggle === "OFF" ? (
+                        <img
+                          src="/window-close-dark.png"
+                          className="w-[6rem] h-[6rem] dark:text-white"
+                        />
                       ) : (
-                        <FaDoorOpen className="text-[4rem] sm:text-[3rem]" />
+                        <img
+                          src="/window-open-dark.png"
+                          className="w-[6rem] h-[6rem] dark:bg-inherit"
+                        />
                       )}
                     </span>
                   </div>

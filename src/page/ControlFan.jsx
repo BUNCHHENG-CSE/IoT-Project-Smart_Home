@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import Layout from "../layout/Layout";
-import { PiFanFill } from "react-icons/pi";
-
+import { TbAirConditioningDisabled  } from "react-icons/tb";
+import { TbAirConditioning } from "react-icons/tb";
 const ControlFan = ({ publish, payload }) => {
   const [fan1Toggle, setFan1Toggle] = useState(
     localStorage.getItem("fan1") === null
@@ -25,10 +25,10 @@ const ControlFan = ({ publish, payload }) => {
       : localStorage.getItem("fan4")
   );
   const fanLists = [
-    { id: 1, name: "Fan 1", value: fan1Toggle, setv: setFan1Toggle },
-    { id: 2, name: "Fan 2", value: fan2Toggle, setv: setFan2Toggle },
-    { id: 3, name: "Fan 3", value: fan3Toggle, setv: setFan3Toggle },
-    { id: 4, name: "Fan 4", value: fan4Toggle, setv: setFan4Toggle },
+    { id: 1, name: "Living Room Air Conditioner", value: fan1Toggle, setv: setFan1Toggle },
+    { id: 2, name: "Bedroom 1 Air Conditioner", value: fan2Toggle, setv: setFan2Toggle },
+    { id: 3, name: "Bedroom 2 Air Conditioner", value: fan3Toggle, setv: setFan3Toggle },
+    { id: 4, name: "Office Air Conditioner", value: fan4Toggle, setv: setFan4Toggle },
   ];
   return (
     <Layout>
@@ -38,7 +38,7 @@ const ControlFan = ({ publish, payload }) => {
             Iot <span className="text-[#915eff]">Smart Home</span>
           </h1>
           <p className="font-medium lg:text-[20px] sm:text-[16px] text-[16px] lg:leading-[40px] mt-2 dark:text-white-100 text-black-100">
-            Iot Project | Smart Home
+            Control Air Conditioner
           </p>
         </div>
         <div className="h-[100rem] w-full sm:-mt-7">
@@ -81,9 +81,9 @@ const ControlFan = ({ publish, payload }) => {
                     <div className="icon">
                       <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
                         {fan.value === "OFF" + fan.id ? (
-                          <PiFanFill className="text-[4rem] sm:text-[3rem]" />
+                          <TbAirConditioningDisabled className="text-[4rem] sm:text-[3rem]" />
                         ) : (
-                          <PiFanFill className=" animate-spin text-[4rem] sm:text-[3rem]" />
+                          <TbAirConditioning  className="  text-[4rem] sm:text-[3rem]" />
                         )}
                       </span>
                     </div>

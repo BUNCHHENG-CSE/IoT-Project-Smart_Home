@@ -41,7 +41,7 @@ const LeftSidebar = () => {
             <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
             <BsFan />
             </span>
-            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control Fan</h2>
+            <h2 className="sm:hidden md:hidden  lg:block font-bold">Control AC</h2>
           </Link>
         </div>
         <div className="pb-4">

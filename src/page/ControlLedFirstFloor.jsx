@@ -93,7 +93,7 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
             Iot <span className="text-[#915eff]">Smart Home</span>
           </h1>
           <p className="font-medium lg:text-[20px] sm:text-[16px]  text-[16px] lg:leading-[40px] mt-2 dark:text-white-100 text-black-100">
-            Iot Project | Smart Home
+           Control LED Ground Floor
           </p>
         </div>
         <div className="h-[100rem] w-full md:mt-10 sm:-mt-7">
