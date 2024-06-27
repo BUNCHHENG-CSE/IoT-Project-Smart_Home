@@ -3,6 +3,8 @@ import { useState } from "react";
 import Layout from "../layout/Layout";
 import { FaDoorClosed } from "react-icons/fa6";
 import { FaDoorOpen } from "react-icons/fa6";
+import { LiaWindowMaximize } from "react-icons/lia";
+import { LiaWindowMinimize } from "react-icons/lia";
 const ControlDoor = ({ publish, payload }) => {
   const [gateToggle, setGateToggle] = useState(
     localStorage.getItem("door1") === null
@@ -130,29 +132,10 @@ const ControlDoor = ({ publish, payload }) => {
                   </div>
                   <div className="">
                     <span className=" p-2 rounded-full  text-black text-3xl dark:text-white">
-                      
-                      {localStorage.getItem("theme") === "light" ? (
-                        windowToggle === "OFF" ? (
-                          <img
-                            src="/window-close-light.png"
-                            className="w-[6rem] h-[6rem] dark:text-white"
-                          />
-                        ) : (
-                          <img
-                            src="/window-open-light.png"
-                            className="w-[6rem] h-[6rem] dark:bg-inherit"
-                          />
-                        )
-                      ) : windowToggle === "OFF" ? (
-                        <img
-                          src="/window-close-dark.png"
-                          className="w-[6rem] h-[6rem] dark:text-white"
-                        />
+                      {windowToggle === "OFF" ? (
+                       <LiaWindowMinimize className="text-[7rem] sm:text-[4rem]"/>
                       ) : (
-                        <img
-                          src="/window-open-dark.png"
-                          className="w-[6rem] h-[6rem] dark:bg-inherit"
-                        />
+                        <LiaWindowMaximize className="text-[7rem] sm:text-[4rem]"/>
                       )}
                     </span>
                   </div>
