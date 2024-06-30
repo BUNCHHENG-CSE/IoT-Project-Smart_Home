@@ -1,4 +1,5 @@
 import Layout from "../layout/Layout";
+import axios from 'axios';
 import { FaTemperatureLow } from "react-icons/fa6";
 import { WiHumidity } from "react-icons/wi";
 import Chart from "chart.js/auto";
@@ -6,18 +7,21 @@ import { CategoryScale } from "chart.js";
 import { useState, useEffect } from "react";
 import Data from "../../src/AW_weather.json";
 import { Line } from "react-chartjs-2";
-
+import { base_url } from "../BaseUrl";
 Chart.register(CategoryScale);
 
 const Temperature = ({ payload }) => {
+  const [data, setData] = useState([]);
+
   const [temperature, setTemperature] = useState(0);
   const [humidity, setHumidity] = useState(0);
   const [tempDataKey, setTempDataKey] = useState([]);
   const [tempDataValue, setTempDataValue] = useState([]);
-  var today = new Date(),
-    date =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log(date);
+  const [postData,SetPostData] = useState({})
+  // var today = new Date(),
+  //   date =
+  //     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  // console.log(date);
   useEffect(() => {
     if (payload.topic) {
       setTempDataKey(Object.keys(JSON.parse(payload.message)));
@@ -25,26 +29,55 @@ const Temperature = ({ payload }) => {
       if (tempDataKey[0] == "temperature" && tempDataKey[1] == "humidity") {
         setTemperature(tempDataValue[0]);
         setHumidity(tempDataValue[1]);
+        SetPostData({temperature:Number(tempDataValue[0]),humidity:Number(tempDataValue[1])})
         setTempDataValue([]);
         setTempDataKey([]);
       }
     }
   }, [payload]);
 
+useEffect(() => {
+        // Fetch data using GET request
+        axios.get(`${base_url}/getData`)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('There was an error fetching the data!', error);
+            });
+    }, []);
+    console.log(data)
+  //   useEffect(() => {
+      
+  //     const interval = setInterval(() => {
+
+  //       axios.post(`${base_url}/postData`, postData)
+  //           .then(response => {
+  //               setData([...data, response.data]);
+           
+  //           })
+  //           .catch(error => {
+  //               console.error('There was an error adding the data!', error);
+  //           });
+  //     }, 5000);
+
+      
+  //     return () => clearInterval(interval);
+  // }, []); 
   const tempLists = [
     {
       id: 1,
       name: "Temperature",
       data: `${temperature.toFixed(2)}`,
-      icon: <FaTemperatureLow />,
-      bgc: " bg-[#63D123]",
+      icon: <FaTemperatureLow className="text-[3rem]"/>,
+      bgc: " bg-[#30fffa]",
     },
     {
       id: 2,
       name: "Humidity",
       data: `${humidity.toFixed(2)}`,
-      icon: <WiHumidity />,
-      bgc: " bg-[#E9F53B]",
+      icon: <WiHumidity className="text-[3rem]" />,
+      bgc: " bg-[#8093b1]",
     },
   ];
   return (
@@ -72,7 +105,7 @@ const Temperature = ({ payload }) => {
                     </h1>
                   </div>
                   <div className="icon">
-                    <span className=" p-2 rounded-full text-black text-3xl ">
+                    <span className=" p-2 rounded-full text-black  ">
                       {tl.icon}
                     </span>
                   </div>
@@ -86,26 +119,18 @@ const Temperature = ({ payload }) => {
               <div>
                 <Line
                   data={{
-                    labels: Data.DailyForecasts.map((d) => d.Date),
+                    labels:data.map((d) => d.timestamp),
                     datasets: [
                       {
-                        label: "Maximum Temperature",
-                        data: Data.DailyForecasts.map(
-                          (dMaxT) =>
-                            (dMaxT.Temperature.Maximum.Value - 32) / 1.8
+                        label: "Temperature",
+                        data: data.map(
+                          (dT) =>
+                            dT.temperature
                         ),
-                        backgroundColor: "#064FF0",
-                        borderColor: "#064FF0",
+                        backgroundColor: "#30fffa",
+                        borderColor: "#30fffa",
                       },
-                      {
-                        label: "Minimum Temperature",
-                        data: Data.DailyForecasts.map(
-                          (dMinT) =>
-                            (dMinT.Temperature.Minimum.Value - 32) / 1.8
-                        ),
-                        backgroundColor: "#FF3030",
-                        borderColor: "#FF3030",
-                      },
+                      
                     ],
                   }}
                   options={{
@@ -117,25 +142,33 @@ const Temperature = ({ payload }) => {
                     plugins: {
                       title: {
                         display: true,
-                        text: "Daily Maximum & Minimum Temperature",
+                        text: "Temperature Data",
+                        font: {
+                          family: 'Poppins',
+                          size: 20,
+                          weight: 'bold',
+                          lineHeight: 1.2,
+                      },
+                  
                       },
                     },
                   }}
+                  
                 />
               </div>
               <div>
                 <Line
                   data={{
-                    labels: Data.DailyForecasts.map((d) => d.Date),
+                    labels: data.map((d) => d.timestamp),
                     datasets: [
                       {
-                        label: "Maximum Temperature",
-                        data: Data.DailyForecasts.map(
-                          (dMaxT) =>
-                            (dMaxT.Temperature.Maximum.Value - 32) / 1.8
+                        label: "Humidity",
+                        data: data.map(
+                          (dH) =>
+                            dH.humidity
                         ),
-                        backgroundColor: "#064FF0",
-                        borderColor: "#064FF0",
+                        backgroundColor: "#8093b1",
+                        borderColor: "#8093b1",
                       },
                     ],
                   }}
@@ -148,7 +181,13 @@ const Temperature = ({ payload }) => {
                     plugins: {
                       title: {
                         display: true,
-                        text: "Daily Maximum & Minimum Temperature",
+                        text: "Humidity Data",
+                        font: {
+                          family: 'Poppins',
+                          size: 20,
+                          weight: 'bold',
+                          lineHeight: 1.2,
+                      },
                       },
                     },
                   }}

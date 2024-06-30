@@ -2,25 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
-import useSpeechToText from "./useSpeechToText";
+
 const Navbar = ({ status }) => {
   const [currentTheme, setCurrentThmeme] = useState("");
-  const [text, setText] = useState("");
-  const { isListening, transcript, startListening, stopListening } =
-    useSpeechToText({ continue: true });
-  const startStopListening = () => {
-    isListening ? stopVoiceInput() : startListening();
-  };
-
-  const stopVoiceInput = () => {
-    setText(
-      (prev) =>
-        prev + (transcript.length ? (prev.length ? " " : "") + transcript : "")
-    );
-    stopListening();
-    
-  };
-  console.log(transcript);
   const handleLogout = () => {
     localStorage.removeItem("led1");
     localStorage.removeItem("led2");
@@ -113,16 +97,6 @@ const Navbar = ({ status }) => {
                   Logout
                 </button>
               </li>
-              {/* <li>
-                <button
-                  onClick={() => {
-                    startStopListening();
-                  }}
-                  className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-                >
-                  {isListening ? "Stop Listening" : "Speak"}
-                </button>
-              </li> */}
             </>
           ) : status === "guest" ? (
             <li>

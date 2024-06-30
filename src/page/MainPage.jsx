@@ -11,6 +11,7 @@ import ConnectToEMQX from "../components/ConnectToEMQX";
 import SubcribeToEMQX from "../components/SubcribeToEMQX";
 import ControlDoor from "./ControlDoor";
 import Garden from "./Garden";
+import SignTracking from "./SignTracking";
 
 const MainPage = ({ token }) => {
   const [client, setClient] = useState(null);
@@ -114,6 +115,8 @@ const MainPage = ({ token }) => {
         <Route path="/controlfan" element={<ControlFan publish={mqttPublish} payload={payload}/>} />
         <Route path="/controldoor" element={<ControlDoor publish={mqttPublish} payload={payload}/>} />
         <Route path="/garden" element={<Garden publish={mqttPublish} payload={payload}/>} />
+        <Route path="/signtracking" element={<SignTracking/>}/>
+
         <Route
           path="/connect"
           element={

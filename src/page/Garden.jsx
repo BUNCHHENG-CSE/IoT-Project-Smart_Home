@@ -20,14 +20,14 @@ const Garden = ({ publish, payload }) => {
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">
-        <div className="h-[18%] w-full grid place-content-center ">
+        <div className="h-[18%] w-full grid lg:grid-cols-2 gap-6 md:grid-cols-2 sm:grid-col-1 sm:mt-10">
           <div
-            className={ ` self-center h-[12rem] w-[50rem] sm:w-[19rem] sm:mt-10 sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#63D123]`}
+            className={` self-center h-[12rem] w-lg sm:mt-10 sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#30fffa]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">
                 <h2 className="mt-4 mb-1 ">Temperature</h2>
-                <h1>{temperature}&#8451;</h1>
+                <h1>{temperature} &#8451;</h1>
               </div>
               <div className="icon">
                 <span className=" p-2 rounded-full text-black text-3xl ">
@@ -36,48 +36,6 @@ const Garden = ({ publish, payload }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="h-fit w-full md:mt-10 sm:mt-20">
-        <Line
-                  data={{
-                    labels: Data.DailyForecasts.map((d) => d.Date),
-                    datasets: [
-                      {
-                        label: "Maximum Temperature",
-                        data: Data.DailyForecasts.map(
-                          (dMaxT) =>
-                            (dMaxT.Temperature.Maximum.Value - 32) / 1.8
-                        ),
-                        backgroundColor: "#064FF0",
-                        borderColor: "#064FF0",
-                      },
-                      {
-                        label: "Minimum Temperature",
-                        data: Data.DailyForecasts.map(
-                          (dMinT) =>
-                            (dMinT.Temperature.Minimum.Value - 32) / 1.8
-                        ),
-                        backgroundColor: "#FF3030",
-                        borderColor: "#FF3030",
-                      },
-                    ],
-                  }}
-                  options={{
-                    elements: {
-                      line: {
-                        tension: 0.5,
-                      },
-                    },
-                    plugins: {
-                      title: {
-                        display: true,
-                        text: "Daily Maximum & Minimum Temperature",
-                      },
-                    },
-                  }}
-                />
-        </div>
-        <div className="h-[18%] w-full grid lg:grid-cols-2 gap-6 md:grid-cols-2 sm:grid-col-1 sm:mt-10">
           <div
             className=" col-span-1 h-[12rem] sm:h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
             onClick={() =>
@@ -112,7 +70,7 @@ const Garden = ({ publish, payload }) => {
               </div>
             </div>
           </div>
-         </div>
+        </div>
       </div>
     </Layout>
   );

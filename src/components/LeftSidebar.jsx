@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaTemperatureHigh } from "react-icons/fa";
 import { FaSunPlantWilt } from "react-icons/fa6";
+import { FaSignLanguage } from "react-icons/fa";
 import { MdCastConnected, MdConnectWithoutContact } from "react-icons/md";
 import { BsFan } from "react-icons/bs";
 import { PiLampPendantFill } from "react-icons/pi";
@@ -141,7 +142,7 @@ const LeftSidebar = () => {
             )}
           </Link>
         </div>
-        <div className="sm:pb-4">
+        <div className="pb-4">
           <Link
             to={"/garden"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white  dark:bg-inherit dark:text-[#2d3436]  active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
@@ -167,7 +168,33 @@ const LeftSidebar = () => {
             )}
           </Link>
         </div>
-        <div className="mt-[16rem] sm:pb-4 sm:mt-2">
+        <div className="sm:pb-4">
+          <Link
+            to={"/signtracking"}
+            className="hover:text-black dark:before:bg-white dark:hover:text-white  dark:bg-inherit dark:text-[#2d3436]  active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
+          >
+            {location.pathname == "/signtracking" ? (
+              <>
+                <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6">
+                  <FaSignLanguage />
+                </span>
+                <h2 className="text-black dark:text-white  sm:hidden md:hidden  lg:block font-bold">
+                  Sign Tracking
+                </h2>
+              </>
+            ) : (
+              <>
+                <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6">
+                  <FaSignLanguage />
+                </span>
+                <h2 className="sm:hidden md:hidden  lg:block font-bold">
+                Sign Tracking
+                </h2>
+              </>
+            )}
+          </Link>
+        </div>
+        <div className="mt-[13rem] sm:pb-4 sm:mt-2">
           <Link
             to={"/subcribe"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white dark:bg-inherit dark:text-[#2d3436] active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
