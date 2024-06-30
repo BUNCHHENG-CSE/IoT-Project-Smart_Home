@@ -19,10 +19,10 @@ const Garden = ({ publish, payload }) => {
   );
   return (
     <Layout>
-      <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3">
-        <div className="h-[18%] w-full grid lg:grid-cols-2 gap-6 md:grid-cols-2 sm:grid-col-1 sm:mt-10">
+      <div className="bg-inherit dark:bg-inherit h-full w-[85%] overflow-y-scroll right-0 sm:pr-3 mx-5">
+        <div className="h-[18%] w-full grid lg:grid-cols-1 gap-6 md:grid-cols-1 sm:grid-col-1 sm:mt-10">
           <div
-            className={` self-center h-[12rem] w-lg sm:mt-10 sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#30fffa]`}
+            className={`self-center mb-7 h-[12rem] w-[50%] sm:w-full  sm:mt-10 sm:h-max px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none bg-[#30fffa]`}
           >
             <div className="flex items-center justify-between">
               <div className=" mr-5">
@@ -31,13 +31,13 @@ const Garden = ({ publish, payload }) => {
               </div>
               <div className="icon">
                 <span className=" p-2 rounded-full text-black text-3xl ">
-                  <FaTemperatureLow />
+                  <FaTemperatureLow className="text-[3rem]" />
                 </span>
               </div>
             </div>
           </div>
           <div
-            className=" col-span-1 h-[12rem] sm:h-max w-lg px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
+            className=" col-span-1 h-[12rem] sm:h-max w-[50%] sm:w-full px-10 py-7 rounded-3xl mt-4 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
             onClick={() =>
               setWaterPumbToggle(
                 waterPumbToggle === "OFF" ? "ON" : "OFF",
@@ -62,9 +62,9 @@ const Garden = ({ publish, payload }) => {
               <div className="icon">
                 <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
                   {waterPumbToggle === "OFF" ? (
-                    <IoWaterOutline className="text-[3rem] sm:text-[2rem]" />
+                    <IoWaterOutline className="text-[4rem] sm:text-[3rem]" />
                   ) : (
-                    <IoWater className="text-[3rem] sm:text-[2rem]" />
+                    <IoWater className="text-[4rem] sm:text-[3rem]" />
                   )}
                 </span>
               </div>

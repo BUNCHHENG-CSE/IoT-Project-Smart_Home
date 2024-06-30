@@ -82,8 +82,8 @@ useEffect(() => {
   ];
   return (
     <Layout>
-      <main className="w-[85%]  h-full flex ">
-        <div className="w-[75%] h-full sm:w-full sm:mr-2">
+      <main className="w-[85%]  h-full flex overflow-y-scroll">
+        <div className="w-[75%] h-full sm:w-full sm:mx-2 sm:mt-16">
           <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52 lg:hidden sm:block">
             {tempLists.map((tl) => (
               <div
@@ -113,10 +113,10 @@ useEffect(() => {
               </div>
             ))}
           </div>
-          <div className="h-[80%] ">
+          <div className="h-[80%] sm:hidden block">
             <h2>Historical Charts</h2>
             <div className="w-[100%] sm:w-[90%] flex flex-col gap-20">
-              <div>
+              <div className="h-[50%]">
                 <Line
                   data={{
                     labels:data.map((d) => d.timestamp),
@@ -156,7 +156,7 @@ useEffect(() => {
                   
                 />
               </div>
-              <div>
+              <div className="h-[50%]">
                 <Line
                   data={{
                     labels: data.map((d) => d.timestamp),
@@ -196,10 +196,10 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <div className=" mx-5 w-[25%] h-full sm:hidden md:hidden lg:block">
+        <div className="w-[25%] h-full sm:hidden md:hidden lg:block mx-5">
           {tempLists.map((tl) => (
             <div
-              className={`  w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
+              className={` w-lg px-10 py-7 rounded-3xl mt-4 shadow-2xl shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none ${tl.bgc}`}
               key={tl.id}
             >
               <div className="flex items-center justify-between">
