@@ -21,7 +21,7 @@ const Login = ({ setToken,setGuest }) => {
     <Layout status={"login"}>
       <form onSubmit={checkEmailAndPass}>
         <div className=" flex items-center justify-center ">
-          <div className=" bg-inherit flex items-center justify-center mt-[17rem] h-[25rem] px-10 py-7 rounded-3xl shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100">
+          <div className=" bg-inherit flex items-center justify-center mt-[17rem] sm:mt-[14rem] h-[25rem] px-10 py-7 rounded-3xl shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100">
             <div className=" grid items-center grid-flow-row">
               <FaHome className="w-14 h-14 dark:text-white place-self-center" />
               <h1 className=" place-self-center mb-2 text-[1.3rem] text-black dark:text-white">
@@ -48,18 +48,20 @@ const Login = ({ setToken,setGuest }) => {
                 />
               </div>
               <div className="flex justify-center  items-center mt-5">
-                <button
-                  className="mr-10 border border-black rounded-xl w-[6rem] h-[2rem] bg-cyan-300"
-                  onClick={checkEmailAndPass}
-                >
-                  Login
-                </button>
+                
                 <Link to={"/guest"} onClick={()=>setGuest(true,sessionStorage.setItem("Guest","Yes"))}>
-                <button className=" border border-black rounded-xl  w-[6rem] h-[2rem] bg-green-400">
-                  Guest
+                <button className="mr-10 border border-black rounded-xl  w-[7rem] h-[3rem] bg-green-400">
+                 <span className=" font-medium text-[1rem]">Guest</span>
+                  
                 </button>
                 </Link>
-                
+                <button
+                  className=" border border-black rounded-xl w-[7rem] h-[3rem] bg-cyan-300"
+                  onClick={checkEmailAndPass}
+                >
+                  <span className=" font-medium text-[1rem]">Login</span>
+                 
+                </button>
               </div>
             </div>
           </div>

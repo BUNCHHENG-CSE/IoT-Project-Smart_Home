@@ -84,7 +84,7 @@ const SignTracking = () => {
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[85%]">
-        <header className="h-[90%] mx-5 mt-5 flex flex-col items-center justify-center text-white font-[calc(10px + 2vmin)]">
+        <header className="h-[90%] sm:w-[50%] mx-5 mt-5 flex flex-col items-center justify-center text-white font-[calc(10px + 2vmin)]">
           <Webcam
             ref={webcamRef}
             muted={true}
