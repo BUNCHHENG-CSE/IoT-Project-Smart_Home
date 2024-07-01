@@ -52,9 +52,9 @@ const SignTracking = () => {
       const boxes = await obj[1].array();
       const classes = await obj[2].array();
       const scores = await obj[4].array();
-      console.log(boxes);
-      console.log(classes)
-      console.log(scores)
+      console.log("Boxes",boxes);
+      console.log("Classes",classes)
+      console.log("Score",scores)
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
