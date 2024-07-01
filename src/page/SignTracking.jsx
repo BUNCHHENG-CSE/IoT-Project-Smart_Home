@@ -52,9 +52,6 @@ const SignTracking = () => {
       const boxes = await obj[1].array();
       const classes = await obj[2].array();
       const scores = await obj[4].array();
-      console.log("Boxes",boxes);
-      console.log("Classes",classes)
-      console.log("Score",scores)
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
@@ -66,7 +63,7 @@ const SignTracking = () => {
           boxes[0],
           classes[0],
           scores[0],
-          0.8,
+          0.5,
           videoWidth,
           videoHeight,
           ctx
