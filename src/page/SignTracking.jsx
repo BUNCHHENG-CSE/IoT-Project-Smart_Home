@@ -63,7 +63,7 @@ const SignTracking = () => {
           boxes[0],
           classes[0],
           scores[0],
-          0.5,
+          0.8,
           videoWidth,
           videoHeight,
           ctx
