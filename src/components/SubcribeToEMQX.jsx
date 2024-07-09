@@ -4,8 +4,22 @@ import Layout from "../layout/Layout";
 const SubcribeToEMQX = ({ sub,showSub }) => {
   const [topic, setTopic] = useState("");
   const [qos, setQos] = useState(0);
+
+  useEffect(() => {
+    disconnect();
+    if(sessionStorage.getItem("EMQXTopic")&&sessionStorage.getItem("EMQXQos")){
+      setTopic(sessionStorage.getItem("EMQXTopic"))
+      setQos(sessionStorage.getItem("EMQXQos"))
+      let topic = sessionStorage.getItem("EMQXTopic").trim()
+      let qos = sessionStorage.getItem("EMQXQos").trim()
+      sub({ topic: topic, qos: qos });
+    }
+  }, []);
+
   const handleSubcribe = (e) => {
     e.preventDefault();
+    sessionStorage.setItem("EMQXTopic",topic)
+    sessionStorage.setItem("EMQXQos",qos)
     sub({ topic: topic, qos: qos });
   };
   return (

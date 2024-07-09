@@ -1,17 +1,20 @@
 import { useState } from "react";
 import Layout from "../layout/Layout";
 import { FaHome } from "react-icons/fa";
-import {Link} from "react-router-dom";
-const Login = ({ setToken,setGuest }) => {
+import { Link } from "react-router-dom";
+const Login = ({ setToken, setGuest }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const emailcheck = "demo@gmail.com";
   const passcheck = "demo12345";
   const checkEmailAndPass = () => {
-    if (email === emailcheck && pass === passcheck) { 
+    if (email === emailcheck && pass === passcheck) {
       setToken(true);
-      sessionStorage.setItem("Email",emailcheck)
-      sessionStorage.setItem("Password","YVhRZ2FYTnVKM1FnWVNCd1lYTnpkMjl5WkE9PQ==")
+      sessionStorage.setItem("Email", emailcheck);
+      sessionStorage.setItem(
+        "Password",
+        "YVhRZ2FYTnVKM1FnWVNCd1lYTnpkMjl5WkE9PQ=="
+      );
     } else {
       alert("Enter Again");
     }
@@ -48,19 +51,20 @@ const Login = ({ setToken,setGuest }) => {
                 />
               </div>
               <div className="flex justify-center  items-center mt-5">
-                
-                <Link to={"/guest"} onClick={()=>setGuest(true,sessionStorage.setItem("Guest","Yes"))}>
-                <button className="mr-10 border border-black rounded-xl  w-[7rem] h-[3rem] bg-green-400">
-                 <span className=" font-medium text-[1rem]">Guest</span>
-                  
-                </button>
+                <Link
+                  to={"/guest"}
+                  onClick={() =>
+                    setGuest(true, sessionStorage.setItem("Guest", "Yes"))
+                  }
+                  className="mr-10 border border-black rounded-xl text-center pt-3 w-[7rem] h-[3rem] bg-green-400"
+                >
+                  <span className=" font-medium text-[1rem]">Guest</span>
                 </Link>
                 <button
                   className=" border border-black rounded-xl w-[7rem] h-[3rem] bg-cyan-300"
                   onClick={checkEmailAndPass}
                 >
                   <span className=" font-medium text-[1rem]">Login</span>
-                 
                 </button>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
 
 const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
@@ -11,8 +11,34 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    disconnect();
+    if(sessionStorage.getItem("Host")&&sessionStorage.getItem("EMQXUsername")&&sessionStorage.getItem("EMQXPassword")){
+      setHost(sessionStorage.getItem("Host"))
+      setUsername(sessionStorage.getItem("EMQXUsername"))
+      setPassword(sessionStorage.getItem("EMQXPassword"))
+      let EMQXHost = sessionStorage.getItem("Host").trim()
+      let username = sessionStorage.getItem("EMQXUsername").trim()
+      let password = sessionStorage.getItem("EMQXPassword").trim()
+      const url = `${protocol}://${EMQXHost}:${port}/mqtt`;
+      const options = {
+        clientID,
+        username,
+        password,
+        clean: true,
+        reconnectPeriod: 1000, // ms
+        connectTimeout: 30 * 1000, // ms
+      };
+      //console.log(url)
+      //console.log(options)
+      connect(url, options);
+    }
+  }, []);
   const handleConnect = (e) => {
     e.preventDefault();
+    sessionStorage.setItem("Host",host)
+    sessionStorage.setItem("EMQXUsername",username)
+    sessionStorage.setItem("EMQXPassword",password)
     const url = `${protocol}://${host}:${port}/mqtt`;
     const options = {
       clientID,
@@ -22,8 +48,8 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
       reconnectPeriod: 1000, // ms
       connectTimeout: 30 * 1000, // ms
     };
-    // console.log(url);
-    // console.log(options);
+    //console.log(url);
+    //console.log(options);
     connect(url, options);
     //console.log(connect)
     //submit();
@@ -40,6 +66,9 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
     setClientID("emqx_react_" + Math.random().toString(16).substring(2, 8))
     setUsername("")
     setPassword("")
+    sessionStorage.removeItem("Host")
+    sessionStorage.removeItem("EMQXUsername")
+    sessionStorage.removeItem("EMQXPassword")
   };
   return (
     <Layout>
