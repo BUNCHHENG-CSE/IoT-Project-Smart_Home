@@ -10,7 +10,7 @@ const labelMap = {
 }
 
 // Define a drawing function
-export const drawRect = (boxes, classes, scores, threshold, imgWidth, imgHeight, ctx)=>{
+export const drawRect = (boxes, classes, scores, threshold, imgWidth, imgHeight, ctx,getLabel)=>{
     for(let i=0; i<=boxes.length; i++){
         if(boxes[i] && classes[i] && scores[i]>threshold){
             // Extract variables
@@ -21,7 +21,7 @@ export const drawRect = (boxes, classes, scores, threshold, imgWidth, imgHeight,
             ctx.lineWidth = 10
             ctx.fillStyle = 'white'
             ctx.font = '30px Arial'         
-            
+            getLabel(labelMap[text]['name'])
             // DRAW!!
             ctx.beginPath()
             ctx.fillText(labelMap[text]['name'] + ' - ' + Math.round(scores[i]*100)/100, x*imgWidth, y*imgHeight-10)

@@ -6,7 +6,8 @@ import ControlLedSecondFloor from "./ControlLedSecondFloor";
 import Temperature from "./Temperature";
 import ControlFan from "./ControlFan";
 import ConnectToEMQX from "../components/ConnectToEMQX";
-// import TestPub from "./components/TestPub";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import SubcribeToEMQX from "../components/SubcribeToEMQX";
 import ControlDoor from "./ControlDoor";
@@ -18,12 +19,24 @@ const MainPage = ({ token }) => {
   const [isSubed, setIsSub] = useState(false);
   const [payload, setPayload] = useState({});
   const [connectStatus, setConnectStatus] = useState("Connect");
+  const [fire,setFire] = useState()
   const mqttConnect = (host, mqttOption) => {
     setConnectStatus("Connecting...");
     setClient(mqtt.connect(host, mqttOption));
   };
 
   useEffect(() => {
+    // toast.error("Fire !!!", {
+    //   position: "top-center",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "colored",
+    //   font:"Poppins"
+    // });
     if (client) {
       client.on("connect", () => {
         setConnectStatus("Connected");
@@ -101,21 +114,51 @@ const MainPage = ({ token }) => {
   };
   return (
     <>
+      <ToastContainer
+      className="w-[55%] h-[2rem] text-[1.15rem] font-extrabold"
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        stacked
+      />
       <Routes>
         <Route
           path="/"
-          element={<ControlLedFirstFloor publish={mqttPublish} payload={payload} />}
+          element={
+            <ControlLedFirstFloor publish={mqttPublish} payload={payload} />
+          }
         />
         <Route
           path="/secondfloor"
-          element={<ControlLedSecondFloor publish={mqttPublish} payload={payload} />}
+          element={
+            <ControlLedSecondFloor publish={mqttPublish} payload={payload} />
+          }
         />
         <Route path="/about" element={<h1>Not found</h1>} />
-        <Route path="/temperature" element={<Temperature payload={payload}  />} />
-        <Route path="/controlfan" element={<ControlFan publish={mqttPublish} payload={payload}/>} />
-        <Route path="/controldoor" element={<ControlDoor publish={mqttPublish} payload={payload}/>} />
-        <Route path="/garden" element={<Garden publish={mqttPublish} payload={payload}/>} />
-        <Route path="/signtracking" element={<SignTracking/>}/>
+        <Route
+          path="/temperature"
+          element={<Temperature payload={payload} />}
+        />
+        <Route
+          path="/controlfan"
+          element={<ControlFan publish={mqttPublish} payload={payload} />}
+        />
+        <Route
+          path="/controldoor"
+          element={<ControlDoor publish={mqttPublish} payload={payload} />}
+        />
+        <Route
+          path="/garden"
+          element={<Garden publish={mqttPublish} payload={payload} />}
+        />
+        <Route path="/signtracking" element={<SignTracking publish={mqttPublish} />} />
 
         <Route
           path="/connect"
@@ -127,7 +170,10 @@ const MainPage = ({ token }) => {
             />
           }
         />
-        <Route path="/subcribe" element={<SubcribeToEMQX sub={mqttSub} showSub={isSubed} />} />
+        <Route
+          path="/subcribe"
+          element={<SubcribeToEMQX sub={mqttSub} showSub={isSubed} />}
+        />
       </Routes>
     </>
   );

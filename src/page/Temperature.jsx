@@ -47,6 +47,17 @@ useEffect(() => {
             });
     }, []);
     console.log(data)
+    const formatDate = (isoString) => {
+      const date = new Date(isoString);
+      return date.toLocaleString('en-US', {
+       
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      });
+    };
+  //  data.map(d=>console.log(formatDate(d.timestamp)))
+
   //   useEffect(() => {
       
   //     const interval = setInterval(() => {
@@ -59,7 +70,7 @@ useEffect(() => {
   //           .catch(error => {
   //               console.error('There was an error adding the data!', error);
   //           });
-  //     }, 5000);
+  //     }, 20000);
 
       
   //     return () => clearInterval(interval);
@@ -119,7 +130,7 @@ useEffect(() => {
               <div className="h-[50%]">
                 <Line
                   data={{
-                    labels:data.map((d) => d.timestamp),
+                    labels:data.map((d) =>formatDate( d.timestamp)),
                     datasets: [
                       {
                         label: "Temperature",
@@ -159,7 +170,7 @@ useEffect(() => {
               <div className="h-[50%]">
                 <Line
                   data={{
-                    labels: data.map((d) => d.timestamp),
+                    labels: data.map((d) =>formatDate( d.timestamp)),
                     datasets: [
                       {
                         label: "Humidity",

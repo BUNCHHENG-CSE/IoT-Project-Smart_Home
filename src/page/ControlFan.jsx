@@ -81,9 +81,9 @@ const ControlFan = ({ publish, payload }) => {
                     <div className="icon">
                       <span className=" p-2 rounded-full text-black text-3xl dark:text-white">
                         {fan.value === "OFF" + fan.id ? (
-                          <TbAirConditioningDisabled className="text-[4rem] sm:text-[3rem]" />
+                          <TbAirConditioningDisabled className="text-[5rem] sm:text-[4rem]" />
                         ) : (
-                          <TbAirConditioning  className="  text-[4rem] sm:text-[3rem]" />
+                          <TbAirConditioning  className="  text-[5rem] sm:text-[4rem]" />
                         )}
                       </span>
                     </div>

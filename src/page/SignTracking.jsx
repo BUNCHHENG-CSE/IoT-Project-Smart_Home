@@ -1,13 +1,15 @@
 // Import dependencies
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import { drawRect } from "../Utils";
 import Layout from "../layout/Layout";
 
-const SignTracking = () => {
+const SignTracking = ({ publish }) => {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  const [func, setFunc] = useState();
+  const [component, setComponent] = useState();
 
   // Main function
   const runCoco = async () => {
@@ -20,7 +22,16 @@ const SignTracking = () => {
       detect(net);
     }, 16.7);
   };
-
+  const getLabel = (l) => {
+    if (l == "Close" || l == "Open") {
+      setComponent("");
+      setFunc(l);
+    } else if (func == "Close" && l !== "Close") {
+      setComponent(l);
+    } else if (func == "Open" && l !== "Open") {
+      setComponent(l);
+    }
+  };
   const detect = async (net) => {
     // Check data is available
     if (
@@ -51,7 +62,7 @@ const SignTracking = () => {
 
       const boxes = await obj[2].array(); // 2
       const classes = await obj[5].array(); // 5
-      const scores = await obj[4].array(); //4 
+      const scores = await obj[4].array(); //4
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
@@ -66,7 +77,8 @@ const SignTracking = () => {
           0.8,
           videoWidth,
           videoHeight,
-          ctx
+          ctx,
+          getLabel
         );
       });
 
@@ -81,6 +93,103 @@ const SignTracking = () => {
   useEffect(() => {
     runCoco();
   }, []);
+  useEffect(() => {
+    if (func === "Close") {
+      if (component === "One") {
+        console.log("Close One")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "OFF",
+        //   }),
+        // });
+      } else if (component === "Two") {
+        console.log("Close Two")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "OFF",
+        //   }),
+        // });
+      } else if (component === "Three") {
+        console.log("Close Three")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "OFF",
+        //   }),
+        // });
+      } else if (component === "Four") {
+        console.log("Close Four")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "OFF",
+        //   }),
+        // });
+      } else if (component === "Five") {
+        console.log("Close Five")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "OFF",
+        //   }),
+        // });
+      }
+    } else if (func === "Open") {
+      if (component === "One") {
+        console.log("Open One")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "ON",
+        //   }),
+        // });
+      } else if (component === "Two") {
+        console.log("Open Two")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "ON",
+        //   }),
+        // });
+      } else if (component === "Three") {
+        console.log("Open Three")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "ON",
+        //   }),
+        // });
+      } else if (component === "Four") {
+        console.log("Open Four")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "ON",
+        //   }),
+        // });
+      } else if (component === "Five") {
+        console.log("Open Five")
+        // publish({
+        //   topic: "esp32/smarthome",
+        //   qos: 0,
+        //   payload: JSON.stringify({
+        //     window: "ON",
+        //   }),
+        // });
+      }
+    }
+  }, [func, component]);
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[85%]">

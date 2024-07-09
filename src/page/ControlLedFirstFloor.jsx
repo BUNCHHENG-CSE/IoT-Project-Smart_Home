@@ -40,7 +40,7 @@ const ControlLedFirstFloor = ({ publish, payload }) => {
           setKLedToggle(tempDataValue[0]);
           setTempDataValue("");
         } else if (tempDataValue == "ON2" || tempDataValue == "OFF2") {
-          setBe1LedToggle(tempDataValue[0]);
+          setLviLedToggle(tempDataValue[0]);
           setTempDataValue("");
         } else if (tempDataValue == "ON3" || tempDataValue == "OFF3") {
           setBa1LedToggle(tempDataValue[0]);
