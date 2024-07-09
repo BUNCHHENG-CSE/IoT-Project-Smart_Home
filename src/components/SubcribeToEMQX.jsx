@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "../layout/Layout";
-
+import { useEffect } from "react";
 const SubcribeToEMQX = ({ sub,showSub }) => {
   const [topic, setTopic] = useState("");
   const [qos, setQos] = useState(0);
