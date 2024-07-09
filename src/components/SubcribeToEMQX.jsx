@@ -6,7 +6,7 @@ const SubcribeToEMQX = ({ sub,showSub }) => {
   const [qos, setQos] = useState(0);
 
   useEffect(() => {
-    disconnect();
+   
     if(sessionStorage.getItem("EMQXTopic")&&sessionStorage.getItem("EMQXQos")){
       setTopic(sessionStorage.getItem("EMQXTopic"))
       setQos(sessionStorage.getItem("EMQXQos"))
