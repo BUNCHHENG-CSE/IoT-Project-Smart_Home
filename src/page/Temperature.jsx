@@ -94,7 +94,7 @@ useEffect(() => {
   return (
     <Layout>
       <main className="w-[85%]  h-full flex overflow-y-scroll">
-        <div className="w-[75%] h-full sm:w-full sm:mx-2 sm:mt-16">
+        <div className="lg:w-[75%] md:w-full h-full sm:w-full sm:mx-2 sm:mt-16">
           <div className="grid grid-cols-2 gap-6 w-[100%] h-[20%] sm:grid-cols-1 sm:gap-2 sm:mb-52 lg:hidden sm:block">
             {tempLists.map((tl) => (
               <div
@@ -125,7 +125,7 @@ useEffect(() => {
             ))}
           </div>
           <div className="h-[80%] sm:hidden block">
-            <h2>Historical Charts</h2>
+            <h2 className="text-[1.5rem] font-semibold mb-5 text-black dark:text-white">Historical Charts of Temperature and Humidity</h2>
             <div className="w-[100%] sm:w-[90%] flex flex-col gap-20">
               <div className="h-[50%]">
                 <Line
@@ -215,7 +215,7 @@ useEffect(() => {
             >
               <div className="flex items-center justify-between">
                 <div className=" mr-5">
-                  <h2 className="mt-4 mb-1 ">{tl.name}</h2>
+                  <h2 className="mt-4 mb-1 font-bold ">{tl.name}</h2>
                   <h1>
                     {tl.data}{" "}
                     {tl.name === "Temperature" ? (

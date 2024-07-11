@@ -108,7 +108,7 @@ const GuestPage = ({ status }) => {
               </div>
             </div>
           </section>
-          <div className=" grid place-content-center">
+          {/* <div className=" grid place-content-center">
             <button
               onClick={() => setMoreToggle(!moreToggle)}
               className=" text-black dark:text-white font-bold text-lg"
@@ -139,7 +139,7 @@ const GuestPage = ({ status }) => {
             </section>
           ) : (
             <></>
-          )}
+          )} */}
         </div>
       </div>
     </Layout>

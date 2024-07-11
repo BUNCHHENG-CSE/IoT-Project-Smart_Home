@@ -30,6 +30,7 @@ const Login = ({ setToken, setGuest }) => {
         progress: undefined,
         theme: "colored",
       });
+      setPass("")
     }
   };
 
@@ -68,14 +69,14 @@ const Login = ({ setToken, setGuest }) => {
                     placeholder="Email..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border border-black w-[17rem] h-[3rem] rounded-xl px-3 mb-3"
+                    className="border border-black w-[17rem] h-[3rem] rounded-xl px-3 mb-3 font-semibold text-[1.1rem]"
                   />
                   <input
                     type="password"
                     placeholder="Password..."
                     value={pass}
                     onChange={(e) => setPass(e.target.value)}
-                    className="border border-black w-[17rem] h-[3rem] rounded-xl px-3"
+                    className="border border-black w-[17rem] h-[3rem] rounded-xl px-3 font-semibold text-[1.1rem]"
                   />
                 </div>
                 <div className="flex justify-center  items-center mt-5">

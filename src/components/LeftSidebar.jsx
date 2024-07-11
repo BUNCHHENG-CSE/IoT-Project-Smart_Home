@@ -20,7 +20,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6 ">
                   <PiLampPendantFill />
                 </span>
-                <h2 className="sm:hidden md:hidden  lg:block font-bold text-black dark:text-white">
+                <h2 className="sm:hidden md:hidden  lg:block font-bold text-black animate-bounce dark:text-white">
                   Control Led 1 Floor
                 </h2>
               </>
@@ -46,7 +46,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6 ">
                   <PiLampPendantFill />
                 </span>
-                <h2 className="text-black dark:text-white sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Control Led 2 Floor
                 </h2>
               </>
@@ -72,8 +72,8 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6 ">
                   <BsFan />
                 </span>
-                <h2 className="text-black dark:text-white sm:hidden md:hidden  lg:block font-bold">
-                  Control AC
+                <h2 className="text-black dark:text-white sm:hidden md:hidden animate-bounce lg:block font-bold ">
+                  Control Air Con
                 </h2>
               </>
             ) : (
@@ -81,8 +81,8 @@ const LeftSidebar = () => {
                 <span className=" text-2xl transition-all duration-300 ease-in hover:ml-6 ">
                   <BsFan />
                 </span>
-                <h2 className="sm:hidden md:hidden  lg:block font-bold">
-                  Control AC
+                <h2 className="sm:hidden md:hidden  lg:block font-bold ">
+                  Control Air Con
                 </h2>
               </>
             )}
@@ -95,11 +95,11 @@ const LeftSidebar = () => {
           >
             {location.pathname == "/controldoor" ? (
               <>
-                <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6 ">
+                <span className="text-black dark:text-white text-2xl transition-all  duration-300 ease-in hover:ml-6 ">
                   <GiLockedDoor />
                 </span>
-                <h2 className="text-black dark:text-white  sm:hidden md:hidden  lg:block font-bold">
-                  Control D & W
+                <h2 className="text-black dark:text-white  sm:hidden md:hidden  animate-bounce lg:block font-bold">
+                Control Door & Window
                 </h2>
               </>
             ) : (
@@ -108,7 +108,7 @@ const LeftSidebar = () => {
                   <GiLockedDoor />
                 </span>
                 <h2 className="sm:hidden md:hidden  lg:block font-bold">
-                  Control D & W
+                  Control Door & Window
                 </h2>
               </>
             )}
@@ -125,7 +125,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6">
                   <FaTemperatureHigh />
                 </span>
-                <h2 className="text-black dark:text-white sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Temperature
                 </h2>
               </>
@@ -152,7 +152,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6">
                   <FaSunPlantWilt />
                 </span>
-                <h2 className="text-black dark:text-white  sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white  sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Garden
                 </h2>
               </>
@@ -178,7 +178,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6">
                   <FaSignLanguage />
                 </span>
-                <h2 className="text-black dark:text-white  sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white  sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Sign Tracking
                 </h2>
               </>
@@ -204,7 +204,7 @@ const LeftSidebar = () => {
                 <span className="text-black dark:text-white text-2xl transition-all duration-300 ease-in hover:ml-6 ">
                   <MdConnectWithoutContact />
                 </span>
-                <h2 className="text-black dark:text-white sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Subcribe
                 </h2>
               </>
@@ -232,7 +232,7 @@ const LeftSidebar = () => {
                 >
                   <MdCastConnected />
                 </span>
-                <h2 className="text-black dark:text-white sm:hidden md:hidden  lg:block font-bold">
+                <h2 className="text-black dark:text-white sm:hidden md:hidden  animate-bounce lg:block font-bold">
                   Connect
                 </h2>
               </>

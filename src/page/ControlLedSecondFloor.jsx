@@ -63,7 +63,7 @@ const ControlLedSecondFloor = ({ publish, payload }) => {
       <div className="bg-inherit dark:bg-inherit h-full w-[85%]  overflow-y-scroll right-0 sm:pr-3">
         <div className=" h-[18%]">
           <h1 className="font-black lg:text-[70px] sm:text-[30px] md:text-[50px] text-[30px] lg:leading-[98px] mt-2 dark:text-white text-black">
-            Iot <span className="text-[#915eff]">Smart Home</span>
+            Iot <span className="bg-gradient-to-t from-[#30cfd0] to-[#330867]  bg-clip-text text-transparent">Smart Home</span>
           </h1>
           <p className="font-medium lg:text-[20px] sm:text-[16px]  text-[16px] lg:leading-[40px] mt-2 dark:text-white-100 text-black-100">
           Control LED First Floor

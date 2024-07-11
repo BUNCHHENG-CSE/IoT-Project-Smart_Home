@@ -30,7 +30,18 @@ const MainPage = ({ token }) => {
     if (client) {
       client.on("connect", () => {
         setConnectStatus("Connected");
-        console.log("connection successful");
+        console.log("connection successfull");
+        toast.info("Connect successfull to EMQX Platform ", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          font: "Poppins",
+        });
       });
       client.on("error", (err) => {
         console.error("Connection error: ", err);
@@ -74,6 +85,7 @@ const MainPage = ({ token }) => {
         client.end(false, () => {
           setConnectStatus("Connect");
           console.log("disconnected successfully");
+          
         });
       } catch (error) {
         console.log("disconnect error:", error);

@@ -24,9 +24,7 @@ export default {
         'sm': {'max': '649px'},
         // => @media (max-width: 639px) { ... }
       },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
-      },
+     
     },
   },
   plugins: [],
