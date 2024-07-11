@@ -58,7 +58,7 @@ const SignTracking = ({ publish }) => {
       const casted = resized.cast("int32");
       const expanded = casted.expandDims(0);
       const obj = await net.executeAsync(expanded);
-      console.log(obj);
+     // console.log(obj);
 
       const boxes = await obj[7].array(); // 7
       const classes = await obj[4].array(); // 4
