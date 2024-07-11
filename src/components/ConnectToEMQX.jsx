@@ -99,13 +99,13 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5 mt-10">
           <label
             htmlFor="protocol"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Protocol
           </label>
           <select
             id="protocol"
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={protocol}
             onChange={(e) => setProtocol(e.target.value)}
           >
@@ -118,7 +118,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5">
           <label
             htmlFor="host"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Host
           </label>
@@ -126,7 +126,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
             type="text"
             id="host"
             value={host}
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="broker.emqx.io"
             required
             onChange={(e) => setHost(e.target.value)}
@@ -136,7 +136,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5">
           <label
             htmlFor="host"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Port
           </label>
@@ -144,7 +144,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
             type="text"
             id="host"
             value={port}
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="broker.emqx.io"
             required
             onChange={(e) => setHost(e.target.value)}
@@ -154,7 +154,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5">
           <label
             htmlFor="clientid"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Client ID
           </label>
@@ -162,7 +162,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
             type="text"
             id="clientid"
             value={clientID}
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="client_react"
             required
             onChange={(e) => setClientID(e.target.value)}
@@ -172,7 +172,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5">
           <label
             htmlFor="username"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Username
           </label>
@@ -180,7 +180,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
             type="text"
             id="username"
             value={username}
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="admin"
             required
             onChange={(e) => setUsername(e.target.value)}
@@ -191,7 +191,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         <div className="mb-5">
           <label
             htmlFor="password"
-            className="block mb-2 font-semibold text-[1.18rem] text-gray-900 dark:text-white"
+            className="block mb-2 font-semibold text-[1.18rem] sm:text-[1rem] text-gray-900 dark:text-white"
           >
             Password
           </label>
@@ -199,7 +199,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
             type="password"
             id="password"
             value={password}
-            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 font-semibold sm:text-[0.9rem] text-[1.1rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -207,13 +207,13 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
 
         <div className="flex justify-between md:gap-2">
           <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-semibold text-[1.1rem] w-full sm:w-auto lg:w-fit md:w-fit px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-semibold  sm:text-[0.9rem] text-[1.1rem] w-[40%] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={handleConnect}
           >
             {connectBtn}
           </button>
           <button
-            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg font-semibold text-[1.1rem] w-full sm:w-auto lg:w-fit md:w-fit px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg font-semibold  sm:text-[0.9rem] text-[1.1rem] w-[40%] px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             onClick={handleDisconnect}
           >
             Disconnect

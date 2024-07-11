@@ -168,7 +168,7 @@ const LeftSidebar = () => {
             )}
           </Link>
         </div>
-        <div className="sm:pb-4">
+        <div className="sm:pb-4 sm:hidden md:hidden lg:block">
           <Link
             to={"/signtracking"}
             className="hover:text-black dark:before:bg-white dark:hover:text-white  dark:bg-inherit dark:text-[#2d3436]  active flex items-center  ml-8 gap-x-4 relative h-14 transition-all duration-300 ease "
