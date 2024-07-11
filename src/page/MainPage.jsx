@@ -19,24 +19,14 @@ const MainPage = ({ token }) => {
   const [isSubed, setIsSub] = useState(false);
   const [payload, setPayload] = useState({});
   const [connectStatus, setConnectStatus] = useState("Connect");
-  const [fire,setFire] = useState()
+  const [payloadDataKey, setPayloadDataKey] = useState([]);
+ // const [payloadDataValue, setPayloadDataValue] = useState([]);
   const mqttConnect = (host, mqttOption) => {
     setConnectStatus("Connecting...");
     setClient(mqtt.connect(host, mqttOption));
   };
 
   useEffect(() => {
-    // toast.error("Fire !!!", {
-    //   position: "top-center",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "colored",
-    //   font:"Poppins"
-    // });
     if (client) {
       client.on("connect", () => {
         setConnectStatus("Connected");
@@ -52,6 +42,27 @@ const MainPage = ({ token }) => {
       client.on("message", (topic, message) => {
         const payload = { topic, message: message.toString() };
         setPayload(payload);
+        if (payload.topic) {
+          setPayloadDataKey(Object.keys(JSON.parse(payload.message)));
+         // setPayloadDataValue(Object.values(JSON.parse(payload.message)));
+          if (payloadDataKey[2] === "fire") {
+            for (i = 0; i < 3; i++) {
+              toast.error("Fire !!!", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                font: "Poppins",
+              });
+            }
+            setTempDataValue([]);
+            setTempDataKey([]);
+          }
+        }
         console.log(`received message: ${message} from topic: ${topic}`);
       });
     }
@@ -115,7 +126,7 @@ const MainPage = ({ token }) => {
   return (
     <>
       <ToastContainer
-      className="w-[55%] h-[2rem] text-[1.15rem] font-extrabold"
+        className="w-[55%] h-[2rem] text-[1.15rem] font-extrabold"
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -158,7 +169,10 @@ const MainPage = ({ token }) => {
           path="/garden"
           element={<Garden publish={mqttPublish} payload={payload} />}
         />
-        <Route path="/signtracking" element={<SignTracking publish={mqttPublish} />} />
+        <Route
+          path="/signtracking"
+          element={<SignTracking publish={mqttPublish} />}
+        />
 
         <Route
           path="/connect"
