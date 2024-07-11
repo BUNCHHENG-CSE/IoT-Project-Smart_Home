@@ -1,5 +1,5 @@
 import Layout from "../layout/Layout";
-import axios from 'axios';
+import axios from "axios";
 import { FaTemperatureLow } from "react-icons/fa6";
 import { WiHumidity } from "react-icons/wi";
 import Chart from "chart.js/auto";
@@ -12,16 +12,12 @@ Chart.register(CategoryScale);
 
 const Temperature = ({ payload }) => {
   const [data, setData] = useState([]);
-
   const [temperature, setTemperature] = useState(0);
   const [humidity, setHumidity] = useState(0);
   const [tempDataKey, setTempDataKey] = useState([]);
   const [tempDataValue, setTempDataValue] = useState([]);
-  const [postData,SetPostData] = useState({})
-  // var today = new Date(),
-  //   date =
-  //     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  // console.log(date);
+  const [postData, SetPostData] = useState({});
+
   useEffect(() => {
     if (payload.topic) {
       setTempDataKey(Object.keys(JSON.parse(payload.message)));
@@ -29,58 +25,58 @@ const Temperature = ({ payload }) => {
       if (tempDataKey[0] == "temperature" && tempDataKey[1] == "humidity") {
         setTemperature(tempDataValue[0]);
         setHumidity(tempDataValue[1]);
-        SetPostData({temperature:Number(tempDataValue[0]),humidity:Number(tempDataValue[1])})
+        SetPostData({
+          temperature: Number(tempDataValue[0]),
+          humidity: Number(tempDataValue[1]),
+        });
         setTempDataValue([]);
         setTempDataKey([]);
       }
     }
   }, [payload]);
 
-useEffect(() => {
-        // Fetch data using GET request
-        axios.get(`${base_url}/getData`)
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the data!', error);
-            });
-    }, []);
-    console.log(data)
-    const formatDate = (isoString) => {
-      const date = new Date(isoString);
-      return date.toLocaleString('en-US', {
-       
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
+  useEffect(() => {
+    // Fetch data using GET request
+    axios
+      .get(`${base_url}/getData`)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the data!", error);
       });
-    };
-  //  data.map(d=>console.log(formatDate(d.timestamp)))
+  }, []);
+  // console.log(data)
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+  };
 
-  //   useEffect(() => {
-      
-  //     const interval = setInterval(() => {
-
-  //       axios.post(`${base_url}/postData`, postData)
-  //           .then(response => {
-  //               setData([...data, response.data]);
-           
-  //           })
-  //           .catch(error => {
-  //               console.error('There was an error adding the data!', error);
-  //           });
-  //     }, 20000);
-
-      
-  //     return () => clearInterval(interval);
-  // }, []); 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (postData !== null) {
+        axios
+          .post(`${base_url}/postData`, postData)
+          .then((response) => {
+            setData([...data, response.data]);
+          })
+          .catch((error) => {
+            console.error("There was an error adding the data!", error);
+          });
+      }
+    }, 20000);
+    return () => clearInterval(interval);
+  }, []);
   const tempLists = [
     {
       id: 1,
       name: "Temperature",
       data: `${temperature.toFixed(2)}`,
-      icon: <FaTemperatureLow className="text-[3rem]"/>,
+      icon: <FaTemperatureLow className="text-[3rem]" />,
       bgc: " bg-[#30fffa]",
     },
     {
@@ -125,23 +121,21 @@ useEffect(() => {
             ))}
           </div>
           <div className="h-[80%] sm:hidden block">
-            <h2 className="text-[1.5rem] font-semibold mb-5 text-black dark:text-white">Historical Charts of Temperature and Humidity</h2>
+            <h2 className="text-[1.5rem] font-semibold mb-5 text-black dark:text-white">
+              Historical Charts of Temperature and Humidity
+            </h2>
             <div className="w-[100%] sm:w-[90%] flex flex-col gap-20">
               <div className="h-[50%]">
                 <Line
                   data={{
-                    labels:data.map((d) =>formatDate( d.timestamp)),
+                    labels: data.map((d) => formatDate(d.timestamp)),
                     datasets: [
                       {
                         label: "Temperature",
-                        data: data.map(
-                          (dT) =>
-                            dT.temperature
-                        ),
+                        data: data.map((dT) => dT.temperature),
                         backgroundColor: "#30fffa",
                         borderColor: "#30fffa",
                       },
-                      
                     ],
                   }}
                   options={{
@@ -155,29 +149,24 @@ useEffect(() => {
                         display: true,
                         text: "Temperature Data",
                         font: {
-                          family: 'Poppins',
+                          family: "Poppins",
                           size: 20,
-                          weight: 'bold',
+                          weight: "bold",
                           lineHeight: 1.2,
-                      },
-                  
+                        },
                       },
                     },
                   }}
-                  
                 />
               </div>
               <div className="h-[50%]">
                 <Line
                   data={{
-                    labels: data.map((d) =>formatDate( d.timestamp)),
+                    labels: data.map((d) => formatDate(d.timestamp)),
                     datasets: [
                       {
                         label: "Humidity",
-                        data: data.map(
-                          (dH) =>
-                            dH.humidity
-                        ),
+                        data: data.map((dH) => dH.humidity),
                         backgroundColor: "#8093b1",
                         borderColor: "#8093b1",
                       },
@@ -194,11 +183,11 @@ useEffect(() => {
                         display: true,
                         text: "Humidity Data",
                         font: {
-                          family: 'Poppins',
+                          family: "Poppins",
                           size: 20,
-                          weight: 'bold',
+                          weight: "bold",
                           lineHeight: 1.2,
-                      },
+                        },
                       },
                     },
                   }}

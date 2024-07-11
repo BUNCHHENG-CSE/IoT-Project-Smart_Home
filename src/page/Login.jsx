@@ -38,9 +38,9 @@ const Login = ({ setToken, setGuest }) => {
  
       <Layout status={"login"}>
         <ToastContainer
-          className="w-[25%] h-[2rem] text-[1.15rem] font-extrabold"
+          className="w-[25%] w lg:w-[25%] h-[2rem] sm:h-[1.5rem] md:h-[1.8rem] text-[1.15rem] font-extrabold sm:w-[80%] sm:ml-10 md:w-[30%]"
           position="top-center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop
           closeOnClick

@@ -77,12 +77,12 @@ const Navbar = ({ status }) => {
           <li className="ml-2 md:ml-5 sm:mr-5 ">
             {currentTheme === "dark" ? (
               <BsFillSunFill
-                className="cursor-pointer text-[1.6rem] hover:text-black hover:scale-110 transition-all dark:text-gray-200 "
+                className="cursor-pointer sm:text-[1rem] md:text-[1.3rem]  text-[1.6rem] hover:text-black hover:scale-110 transition-all dark:text-gray-200 "
                 onClick={() => changeTheme("light")}
               />
             ) : (
               <BsFillMoonFill
-                className="cursor-pointer text-[1.6rem] hover:text-black hover:scale-110 transition-all dark:text-gray-200 "
+                className="cursor-pointer sm:text-[1rem] md:text-[1.3rem] text-[1.6rem] hover:text-black hover:scale-110 transition-all dark:text-gray-200 "
                 onClick={() => changeTheme("dark")}
               />
             )}

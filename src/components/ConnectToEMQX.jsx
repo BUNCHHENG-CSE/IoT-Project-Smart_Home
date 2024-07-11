@@ -207,7 +207,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
 
         <div className="flex justify-between md:gap-2">
           <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-semibold  sm:text-[0.9rem] sm:w-[45%] text-[1.1rem] w-[40%] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-semibold  sm:text-[0.9rem] sm:w-[48%] text-[1.1rem] w-[40%] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={handleConnect}
           >
             {connectBtn}
@@ -224,7 +224,7 @@ const ConnectToEMQX = ({ connect, disconnect, connectBtn }) => {
         </h3>
       </form>
       <ToastContainer
-        className="w-[55%] h-[2rem] text-[1.15rem] font-extrabold"
+        className="w-[55%] lg:w-[55%] h-[2rem] text-[1.15rem] font-extrabold sm:w-[90%] sm:ml-5 md:w-[80%] sm:h-[1.5rem] md:h-[1.8rem]"
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}

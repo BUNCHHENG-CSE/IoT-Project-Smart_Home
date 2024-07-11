@@ -138,7 +138,7 @@ const MainPage = ({ token }) => {
   return (
     <>
       <ToastContainer
-        className="w-[55%] h-[2rem] text-[1.15rem] font-extrabold"
+        className="w-[55%] lg:w-[55%] h-[2rem] text-[1.15rem] font-extrabold sm:w-[90%] sm:ml-5 md:w-[80%] sm:h-[1.5rem] md:h-[1.8rem]"
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
