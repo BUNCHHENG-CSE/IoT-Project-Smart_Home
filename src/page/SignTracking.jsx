@@ -60,9 +60,9 @@ const SignTracking = ({ publish }) => {
       const obj = await net.executeAsync(expanded);
      // console.log(obj);
 
-      const boxes = await obj[7].array(); // 7
-      const classes = await obj[4].array(); // 4
-      const scores = await obj[6].array(); //6
+      const boxes = await obj[3].array(); // 3
+      const classes = await obj[5].array(); // 5
+      const scores = await obj[1].array(); // 1
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
@@ -74,7 +74,7 @@ const SignTracking = ({ publish }) => {
           boxes[0],
           classes[0],
           scores[0],
-          0.8,
+          0.85,
           videoWidth,
           videoHeight,
           ctx,
