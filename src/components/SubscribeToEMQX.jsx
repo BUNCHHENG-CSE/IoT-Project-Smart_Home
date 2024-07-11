@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Layout from "../layout/Layout";
 import { useEffect } from "react";
-const SubcribeToEMQX = ({ sub,showSub }) => {
+const SubscribeToEMQX = ({ sub,showSub }) => {
   const [topic, setTopic] = useState("");
   const [qos, setQos] = useState(0);
 
@@ -28,7 +28,7 @@ const SubcribeToEMQX = ({ sub,showSub }) => {
         className=" h-max lg:w-[60%] sm:w-full px-10 py-7 rounded-3xl mt-16 ml-24 sm:mx-2 shadow-lg shadow-zinc-800  dark:shadow-zinc-700  transition-all duration-300 ease hover:shadow-none border border-opacity-0  border-stone-950 hover:border-opacity-100 dark:border-white dark:border-opacity-0 dark:hover:border-opacity-100"
         action=""
       >
-        <h1 className="text-black dark:text-white sm:text-[1.2rem] mb-5">Connect To EMQX Subcribe</h1>
+        <h1 className="text-black dark:text-white sm:text-[1.2rem] mb-5">Connect To EMQX Subscribe</h1>
 
         {/*Host */}
         <div className="mb-5">
@@ -79,4 +79,4 @@ const SubcribeToEMQX = ({ sub,showSub }) => {
   );
 };
 
-export default SubcribeToEMQX;
+export default SubscribeToEMQX;

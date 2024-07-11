@@ -9,7 +9,7 @@ import ConnectToEMQX from "../components/ConnectToEMQX";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import SubcribeToEMQX from "../components/SubcribeToEMQX";
+import SubscribeToEMQX from "../components/SubscribeToEMQX";
 import ControlDoor from "./ControlDoor";
 import Garden from "./Garden";
 import SignTracking from "./SignTracking";
@@ -198,7 +198,7 @@ const MainPage = ({ token }) => {
         />
         <Route
           path="/subcribe"
-          element={<SubcribeToEMQX sub={mqttSub} showSub={isSubed} />}
+          element={<SubscribeToEMQX sub={mqttSub} showSub={isSubed} />}
         />
       </Routes>
     </>

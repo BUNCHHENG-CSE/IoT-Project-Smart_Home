@@ -205,7 +205,7 @@ const LeftSidebar = () => {
                   <MdConnectWithoutContact />
                 </span>
                 <h2 className="text-black dark:text-white sm:hidden md:hidden  animate-bounce lg:block font-bold">
-                  Subcribe
+                  Subscribe
                 </h2>
               </>
             ) : (
@@ -214,7 +214,7 @@ const LeftSidebar = () => {
                   <MdConnectWithoutContact />
                 </span>
                 <h2 className="sm:hidden md:hidden  lg:block font-bold">
-                  Subcribe
+                  Subscribe
                 </h2>
               </>
             )}
