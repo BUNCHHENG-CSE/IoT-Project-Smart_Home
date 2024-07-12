@@ -97,10 +97,10 @@ const GuestPage = ({ status }) => {
                       src="./me.png"
                     />
                     <div className="flex-1 my-4">
-                      <p className="text-xl font-semibold leading-snug">N/A</p>
+                      <p className="text-xl font-semibold leading-snug">Hang Bunchheng</p>
                       <p className=" text-base">
                         <span className=" font-semibold">Member</span> |
-                        Chilling guy
+                        Software
                       </p>
                     </div>
                   </div>
