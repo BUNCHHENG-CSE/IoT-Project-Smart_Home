@@ -56,21 +56,21 @@ const Temperature = ({ payload }) => {
     });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (postData !== null) {
-        axios
-          .post(`${base_url}/postData`, postData)
-          .then((response) => {
-            setData([...data, response.data]);
-          })
-          .catch((error) => {
-            console.error("There was an error adding the data!", error);
-          });
-      }
-    }, 20000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (postData !== null) {
+  //       axios
+  //         .post(`${base_url}/postData`, postData)
+  //         .then((response) => {
+  //           setData([...data, response.data]);
+  //         })
+  //         .catch((error) => {
+  //           console.error("There was an error adding the data!", error);
+  //         });
+  //     }
+  //   }, 20000);
+  //   return () => clearInterval(interval);
+  // }, []);
   const tempLists = [
     {
       id: 1,
