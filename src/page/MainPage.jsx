@@ -20,7 +20,7 @@ const MainPage = ({ token }) => {
   const [payload, setPayload] = useState({});
   const [connectStatus, setConnectStatus] = useState("Connect");
   const [payloadDataKey, setPayloadDataKey] = useState([]);
- // const [payloadDataValue, setPayloadDataValue] = useState([]);
+  // const [payloadDataValue, setPayloadDataValue] = useState([]);
   const mqttConnect = (host, mqttOption) => {
     setConnectStatus("Connecting...");
     setClient(mqtt.connect(host, mqttOption));
@@ -55,7 +55,7 @@ const MainPage = ({ token }) => {
         setPayload(payload);
         if (payload.topic) {
           setPayloadDataKey(Object.keys(JSON.parse(payload.message)));
-         // setPayloadDataValue(Object.values(JSON.parse(payload.message)));
+          // setPayloadDataValue(Object.values(JSON.parse(payload.message)));
           if (payloadDataKey[2] === "fire") {
             for (i = 0; i < 3; i++) {
               toast.error("Fire !!!", {
@@ -69,9 +69,9 @@ const MainPage = ({ token }) => {
                 theme: "colored",
                 font: "Poppins",
               });
+              setTimeout(() => {}, 2000);
             }
-            setTempDataValue([]);
-            setTempDataKey([]);
+            setPayloadDataKey([]);
           }
         }
         console.log(`received message: ${message} from topic: ${topic}`);
@@ -85,7 +85,6 @@ const MainPage = ({ token }) => {
         client.end(false, () => {
           setConnectStatus("Connect");
           console.log("disconnected successfully");
-          
         });
       } catch (error) {
         console.log("disconnect error:", error);
