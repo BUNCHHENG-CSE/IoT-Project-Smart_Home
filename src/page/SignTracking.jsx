@@ -58,15 +58,15 @@ const SignTracking = ({ publish }) => {
       const casted = resized.cast("int32");
       const expanded = casted.expandDims(0);
       const obj = await net.executeAsync(expanded);
-     // console.log(obj);
-console.log("obj 0",obj[0])
-console.log("obj 1",obj[1])
-console.log("obj 2",obj[2])
-console.log("obj 3",obj[3])
-console.log("obj 4",obj[4])
-console.log("obj 5",obj[5])
-console.log("obj 6",obj[6])
-console.log("obj 7",obj[7])
+      // console.log(obj);
+      console.log("obj 0", obj[0].array());
+      console.log("obj 1", obj[1].array());
+      console.log("obj 2", obj[2].array());
+      console.log("obj 3", obj[3].array());
+      console.log("obj 4", obj[4].array());
+      console.log("obj 5", obj[5].array());
+      console.log("obj 6", obj[6].array());
+      console.log("obj 7", obj[7].array());
 
       const boxes = await obj[3].array(); // 3
       const classes = await obj[5].array(); // 5
@@ -104,7 +104,7 @@ console.log("obj 7",obj[7])
   useEffect(() => {
     if (func === "Close") {
       if (component === "One") {
-        console.log("Close One")
+        console.log("Close One");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -113,7 +113,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Two") {
-        console.log("Close Two")
+        console.log("Close Two");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -122,7 +122,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Three") {
-        console.log("Close Three")
+        console.log("Close Three");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -131,7 +131,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Four") {
-        console.log("Close Four")
+        console.log("Close Four");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -140,7 +140,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Five") {
-        console.log("Close Five")
+        console.log("Close Five");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -151,7 +151,7 @@ console.log("obj 7",obj[7])
       }
     } else if (func === "Open") {
       if (component === "One") {
-        console.log("Open One")
+        console.log("Open One");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -160,7 +160,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Two") {
-        console.log("Open Two")
+        console.log("Open Two");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -169,7 +169,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Three") {
-        console.log("Open Three")
+        console.log("Open Three");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -178,7 +178,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Four") {
-        console.log("Open Four")
+        console.log("Open Four");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
@@ -187,7 +187,7 @@ console.log("obj 7",obj[7])
         //   }),
         // });
       } else if (component === "Five") {
-        console.log("Open Five")
+        console.log("Open Five");
         // publish({
         //   topic: "esp32/smarthome",
         //   qos: 0,
