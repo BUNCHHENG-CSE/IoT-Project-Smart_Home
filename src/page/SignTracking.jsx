@@ -10,6 +10,12 @@ const SignTracking = ({ publish }) => {
   const canvasRef = useRef(null);
   const [func, setFunc] = useState();
   const [component, setComponent] = useState();
+  const [ledb1ON, setLedB1ON] = useState(0);
+  const [doorON, setDoorON] = useState(0);
+  const [fanb1ON, setFanB1ON] = useState(0);
+  const [ledb1OFF, setLedB1OFF] = useState(0);
+  const [doorOFF, setDoorOFF] = useState(0);
+  const [fanb1OFF, setFanB1OFF] = useState(0);
 
   // Main function
   const runCoco = async () => {
@@ -23,7 +29,106 @@ const SignTracking = ({ publish }) => {
     }, 16.7);
   };
   const getLabel = (l) => {
-    console.log(l)
+    if (l === "Open" && ledb1ON === 0) {
+      console.log("Led Bedroom 1 ON");
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          led: "ON5",
+        }),
+      });
+      setLedB1ON(1);
+      setLedB1OFF(0);
+      setDoorOFF(0);
+      setDoorON(0);
+      setFanB1OFF(0);
+      setFanB1ON(0);
+    } else if (l === "One" && ledb1OFF === 0) {
+      console.log("Led Bedroom 1 OFF");
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          led: "OFF5",
+        }),
+      });
+      setLedB1ON(0);
+      setLedB1OFF(1);
+      setDoorOFF(0);
+      setDoorON(0);
+      setFanB1OFF(0);
+      setFanB1ON(0);
+    } else if (l === "Two" && doorON === 0) {
+      console.log("Door ON");
+
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          door: "ON2",
+        }),
+      });
+      setLedB1ON(0);
+      setLedB1OFF(0);
+      setDoorOFF(0);
+      setDoorON(1);
+      setFanB1OFF(0);
+      setFanB1ON(0);
+    } else if (l === "Three" && doorOFF === 0) {
+      console.log("Door OFF");
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          door: "OFF2",
+        }),
+      });
+      setLedB1ON(0);
+      setLedB1OFF(0);
+      setDoorOFF(1);
+      setDoorON(0);
+      setFanB1OFF(0);
+      setFanB1ON(0);
+    } else if (l === "Four" && fanb1ON === 0) {
+      console.log("Fan Bedroom 1 ON");
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          fan: "ON2",
+        }),
+      });
+      setLedB1ON(0);
+      setLedB1OFF(0);
+      setDoorOFF(0);
+      setDoorON(0);
+      setFanB1OFF(0);
+      setFanB1ON(1);
+    } else if (l === "Five" && fanb1OFF === 0) {
+      console.log("Fan Bedroom 1 OFF");
+      publish({
+        topic: "esp32/smarthome",
+        qos: 0,
+        payload: JSON.stringify({
+          fan: "OFF2",
+        }),
+      });
+      setLedB1ON(0);
+      setLedB1OFF(0);
+      setDoorOFF(0);
+      setDoorON(0);
+      setFanB1OFF(1);
+      setFanB1ON(0);
+    } else {
+      console.log("Testing");
+      setLedB1ON(0);
+      setLedB1OFF(0);
+      setDoorOFF(0);
+      setDoorON(0);
+      setFanB1OFF(0);
+      setFanB1ON(0);
+    }
   };
   const detect = async (net) => {
     // Check data is available
@@ -51,7 +156,6 @@ const SignTracking = ({ publish }) => {
       const casted = resized.cast("int32");
       const expanded = casted.expandDims(0);
       const obj = await net.executeAsync(expanded);
-      
 
       const boxes = await obj[3].array(); // 3
       const classes = await obj[5].array(); // 5
@@ -67,7 +171,7 @@ const SignTracking = ({ publish }) => {
           boxes[0],
           classes[0],
           scores[0],
-          0.89,
+          0.88,
           videoWidth,
           videoHeight,
           ctx,
@@ -86,7 +190,7 @@ const SignTracking = ({ publish }) => {
   useEffect(() => {
     runCoco();
   }, []);
- 
+
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[95%] ">

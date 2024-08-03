@@ -32,12 +32,12 @@ export const drawRect = (
       ctx.font = "30px Arial";
       getLabel(labelMap[text]["name"]);
       var tempText = labelMap[text]["name"];
-      if (labelMap[text]["name"] === "Close") tempText = "Led Bedroom 1 ON";
+      if (labelMap[text]["name"] === "Close") tempText = "Testing Sign";
       else if (labelMap[text]["name"] === "Open")
-        tempText = "Led Bedroom 1 OFF";
-      else if (labelMap[text]["name"] === "One") tempText = "Door ON";
-      else if (labelMap[text]["name"] === "Two") tempText = "Door OFF";
-      else if (labelMap[text]["name"] === "Three") tempText = "Testing Sign";
+        tempText = "Led Bedroom 1 ON";
+      else if (labelMap[text]["name"] === "One") tempText = "Led Bedroom 1 OFF";
+      else if (labelMap[text]["name"] === "Two") tempText = "Door ON";
+      else if (labelMap[text]["name"] === "Three") tempText = "Door OFF";
       else if (labelMap[text]["name"] === "Four") tempText = "Fan Bedroom 1 ON";
       else if (labelMap[text]["name"] === "Five")
         tempText = "Fan Bedroom 1 OFF";
