@@ -23,14 +23,7 @@ const SignTracking = ({ publish }) => {
     }, 16.7);
   };
   const getLabel = (l) => {
-    if (l == "Close" || l == "Open") {
-      setComponent("");
-      setFunc(l);
-    } else if (func == "Close" && l !== "Close") {
-      setComponent(l);
-    } else if (func == "Open" && l !== "Open") {
-      setComponent(l);
-    }
+    console.log(l)
   };
   const detect = async (net) => {
     // Check data is available
@@ -74,7 +67,7 @@ const SignTracking = ({ publish }) => {
           boxes[0],
           classes[0],
           scores[0],
-          0.8,
+          0.89,
           videoWidth,
           videoHeight,
           ctx,
@@ -93,103 +86,7 @@ const SignTracking = ({ publish }) => {
   useEffect(() => {
     runCoco();
   }, []);
-  useEffect(() => {
-    if (func === "Close") {
-      if (component === "One") {
-        console.log("Close One");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "OFF",
-        //   }),
-        // });
-      } else if (component === "Two") {
-        console.log("Close Two");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "OFF",
-        //   }),
-        // });
-      } else if (component === "Three") {
-        console.log("Close Three");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "OFF",
-        //   }),
-        // });
-      } else if (component === "Four") {
-        console.log("Close Four");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "OFF",
-        //   }),
-        // });
-      } else if (component === "Five") {
-        console.log("Close Five");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "OFF",
-        //   }),
-        // });
-      }
-    } else if (func === "Open") {
-      if (component === "One") {
-        console.log("Open One");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "ON",
-        //   }),
-        // });
-      } else if (component === "Two") {
-        console.log("Open Two");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "ON",
-        //   }),
-        // });
-      } else if (component === "Three") {
-        console.log("Open Three");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "ON",
-        //   }),
-        // });
-      } else if (component === "Four") {
-        console.log("Open Four");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "ON",
-        //   }),
-        // });
-      } else if (component === "Five") {
-        console.log("Open Five");
-        // publish({
-        //   topic: "esp32/smarthome",
-        //   qos: 0,
-        //   payload: JSON.stringify({
-        //     window: "ON",
-        //   }),
-        // });
-      }
-    }
-  }, [func, component]);
+ 
   return (
     <Layout>
       <div className="bg-inherit dark:bg-inherit h-full w-[95%] ">

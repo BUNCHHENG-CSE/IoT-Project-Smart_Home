@@ -22,9 +22,18 @@ export const drawRect = (boxes, classes, scores, threshold, imgWidth, imgHeight,
             ctx.fillStyle = 'white'
             ctx.font = '30px Arial'         
             getLabel(labelMap[text]['name'])
+            var tempText = labelMap[text]['name']
+            if(labelMap[text]['name']==="Close") tempText ="Led Bedroom 1 ON"
+            else if(labelMap[text]['name']==="Open") tempText ="Led Bedroom 1 OFF"
+            else if(labelMap[text]['name']==="One") tempText ="Door ON"
+            else if(labelMap[text]['name']==="Two") tempText ="Door OFF"
+            else if(labelMap[text]['name']==="Three") tempText ="Testing Sign"
+            else if(labelMap[text]['name']==="Four") tempText ="Fan Bedroom 1 ON"
+            else if(labelMap[text]['name']==="Open") tempText ="Fan Bedroom 1 OFF"
+
             // DRAW!!
             ctx.beginPath()
-            ctx.fillText(labelMap[text]['name'] + ' - ' + Math.round(scores[i]*100)/100, x*imgWidth, y*imgHeight-10)
+            ctx.fillText( + ' - ' + Math.round(scores[i]*100)/100, x*imgWidth, y*imgHeight-10)
             ctx.rect(x*imgWidth, y*imgHeight, width*imgWidth/2, height*imgHeight/1.5);
             ctx.stroke()
         }
