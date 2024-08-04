@@ -16,7 +16,7 @@ const SignTracking = ({ publish }) => {
   const [ledb1OFF, setLedB1OFF] = useState(0);
   const [doorOFF, setDoorOFF] = useState(0);
   const [fanb1OFF, setFanB1OFF] = useState(0);
-
+  const [getText, setGetText] = useState();
   // Main function
   const runCoco = async () => {
     const net = await tf.loadGraphModel(
@@ -28,8 +28,8 @@ const SignTracking = ({ publish }) => {
       detect(net);
     }, 16.7);
   };
-  const getLabel = (l) => {
-    if (l === "Open" && ledb1ON === 0) {
+  useEffect(() => {
+    if (getText === "Open" && ledb1ON === 0) {
       console.log("Led Bedroom 1 ON");
       publish({
         topic: "esp32/smarthome",
@@ -44,7 +44,7 @@ const SignTracking = ({ publish }) => {
       setDoorON(0);
       setFanB1OFF(0);
       setFanB1ON(0);
-    } else if (l === "One" && ledb1OFF === 0) {
+    } else if (getText === "One" && ledb1OFF === 0) {
       console.log("Led Bedroom 1 OFF");
       publish({
         topic: "esp32/smarthome",
@@ -59,7 +59,7 @@ const SignTracking = ({ publish }) => {
       setDoorON(0);
       setFanB1OFF(0);
       setFanB1ON(0);
-    } else if (l === "Two" && doorON === 0) {
+    } else if (getText === "Two" && doorON === 0) {
       console.log("Door ON");
 
       publish({
@@ -75,7 +75,7 @@ const SignTracking = ({ publish }) => {
       setDoorON(1);
       setFanB1OFF(0);
       setFanB1ON(0);
-    } else if (l === "Three" && doorOFF === 0) {
+    } else if (getText === "Three" && doorOFF === 0) {
       console.log("Door OFF");
       publish({
         topic: "esp32/smarthome",
@@ -90,7 +90,7 @@ const SignTracking = ({ publish }) => {
       setDoorON(0);
       setFanB1OFF(0);
       setFanB1ON(0);
-    } else if (l === "Four" && fanb1ON === 0) {
+    } else if (getText === "Four" && fanb1ON === 0) {
       console.log("Fan Bedroom 1 ON");
       publish({
         topic: "esp32/smarthome",
@@ -105,7 +105,7 @@ const SignTracking = ({ publish }) => {
       setDoorON(0);
       setFanB1OFF(0);
       setFanB1ON(1);
-    } else if (l === "Five" && fanb1OFF === 0) {
+    } else if (getText === "Five" && fanb1OFF === 0) {
       console.log("Fan Bedroom 1 OFF");
       publish({
         topic: "esp32/smarthome",
@@ -129,6 +129,9 @@ const SignTracking = ({ publish }) => {
       setFanB1OFF(0);
       setFanB1ON(0);
     }
+  }, [getText]);
+  const getLabel = (l) => {
+    setGetText(l);
   };
   const detect = async (net) => {
     // Check data is available
