@@ -19,10 +19,13 @@
 - Hang Bunchheng | Member **Work on software and coding to build  ( web app and mobile app )**
 
 
-```bash
+
 
 # Install dependencies
+```bash
 npm install
-
+```
 # Start the development server
+```bash
 npm run dev
+```
